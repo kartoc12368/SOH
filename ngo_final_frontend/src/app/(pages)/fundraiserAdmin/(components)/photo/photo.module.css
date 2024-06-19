@@ -1,0 +1,323 @@
+/* image for photo.js */
+.photowrapper {
+  width: 75%;
+  background-color: #f8f8f8;
+}
+
+.aside {
+  display: flex;
+}
+
+.photowrapper .dashboard {
+  display: flex;
+  justify-content: center;
+}
+.photowrapper .dashboard .Photos .active {
+  background-color: #e6e6e6;
+}
+.photowrapper .dashboard img {
+  display: block;
+  max-width: 20px;
+  margin-right: 23px;
+  max-height: 18px;
+}
+.photowrapper .barmenu .Dashboard p img {
+  max-width: 20px;
+  margin-right: 20px;
+  max-height: 18px;
+}
+.galleryImage {
+  width: 240px;
+  height: 200px;
+}
+.galleryImg {
+  position: absolute;
+  object-fit: contain;
+  box-shadow: 0px 2px 8px 0px #00000026;
+}
+.delete {
+  position: relative;
+  top: 0.8em;
+  left: 16.5em;
+  color: #fff;
+  border: 1px solid #000000;
+  padding: 5px;
+  background-color: #000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.photowrapper .report p Image {
+  display: block;
+  max-width: 20px;
+  margin-left: 42px;
+  max-height: 18px;
+}
+.photowrapper .report {
+  display: flex;
+  justify-content: center;
+}
+.photowrapper .imgwrapper {
+  margin-top: 10px;
+  /* margin-left: 4em; */
+}
+
+.photowrapper .upload button {
+  padding: 10px;
+  color: #252988;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 2px solid #252988;
+  cursor: pointer;
+}
+
+.photowrapper .imgcount p {
+  color: #ffa64d;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 36px;
+  margin-left: 22px;
+}
+
+.photowrapper .row {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 230px 230px 230px;
+  grid-row-gap: 25px;
+  row-gap: 25px;
+  column-gap: 25px;
+  grid-template-columns: 300px 300px 300px;
+  justify-content: space-around;
+}
+
+.row {
+  margin-bottom: 7%;
+}
+
+.photowrapper .row .col button {
+  display: flex;
+  float: right;
+  border: none;
+  cursor: pointer;
+  right: 0;
+  position: absolute;
+}
+
+.upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadAndText {
+  display: flex;
+  justify-content: space-between;
+}
+
+.previewPhoto {
+  margin-right: 14px;
+  font-weight: 600;
+  font-size: 1em;
+  width: 11.1em;
+  height: 2.75em;
+}
+
+.previewPhoto span {
+  margin-left: 0.8em;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+.pageLink {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #000080;
+  background-color: #fff;
+  color: #000000;
+  cursor: pointer;
+}
+.pageLink.filled {
+  background-color: #000080;
+  color: #ffffff;
+  border: none;
+  outline: none;
+}
+.pageLink.activePage {
+  background-color: #000080;
+  color: #fff;
+}
+.galleryImg {
+  box-shadow: 0px 2px 8px 0px #00000026;
+
+  object-fit: contain;
+}
+.uploadButton {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #000080;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.closeModal {
+  margin-left: 2em;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #000080;
+  background-color: #fff;
+  color: #000000;
+  cursor: pointer;
+}
+
+.modalContent {
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  padding: 20px;
+}
+.imageModal {
+  display: grid;
+  margin: 10px;
+  padding: 20px;
+  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-rows: auto;
+  row-gap: 10px;
+}
+.modalImage {
+  height: 200px;
+  width: 200px;
+  row-gap: 200px;
+  column-gap: 200px;
+}
+.button {
+  margin-left: 30px;
+}
+.swal2-image {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 320px) {
+  .aside {
+    flex-direction: column;
+  }
+  .photowrapper {
+    width: 100%;
+  }
+  .uploadAndText {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-left: 40px;
+    gap: 20px;
+  }
+  .upload {
+    justify-content: flex-start;
+  }
+  .photowrapper .imgcount p {
+    margin: 0;
+  }
+  .photowrapper .row {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    padding-top: 60px;
+    gap: 60px;
+  }
+  .delete {
+    left: 15.5em;
+  }
+  .modalContent {
+    margin: 0px;
+    padding: 0px;
+  }
+  .imageModal {
+    display: grid;
+    margin: 0px;
+    padding: 0px;
+    grid-template-columns: 300px;
+    grid-template-rows: auto;
+    row-gap: 10px;
+  }
+  .button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    padding-bottom: 30px;
+    gap: 10px;
+  }
+  .button button {
+    margin: auto;
+  }
+  .modalContent h1 {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 767px) {
+  .aside {
+    flex-direction: column;
+  }
+  .photowrapper {
+    width: 100%;
+  }
+  .uploadAndText {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-left: 40px;
+    gap: 20px;
+  }
+  .upload {
+    justify-content: flex-start;
+  }
+  .photowrapper .imgcount p {
+    margin: 0;
+  }
+  .photowrapper .row {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-top: 60px;
+    gap: 60px;
+  }
+  .delete {
+    left: 15.5em;
+  }
+  .modalContent {
+    margin: 0px;
+    padding: 0px;
+  }
+  .imageModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+  }
+  .modalContent h1 {
+    text-align: center;
+  }
+  .button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+
+    padding-bottom: 30px;
+    gap: 10px;
+  }
+  .button button {
+    margin: auto;
+  }
+}

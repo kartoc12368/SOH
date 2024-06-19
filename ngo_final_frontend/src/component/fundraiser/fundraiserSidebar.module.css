@@ -1,0 +1,266 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-image: url(/images/BackgroundImage.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border: 1px solid #fff;
+  border-bottom: none;
+}
+.leftSection {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 80px;
+  align-items: center;
+  text-align: justify;
+  color: #fff;
+}
+.content {
+  width: 593px;
+  margin-left: 80px;
+}
+.content h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #e9f7f0;
+  font-family: Helvetica;
+  letter-spacing: 2px;
+}
+.content p {
+  font-family: Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+
+  margin-top: 20px;
+  /* letter-spacing: 2px; */
+}
+.rightSection {
+  width: 50%;
+  overflow: hidden;
+}
+.ImageArea {
+  width: 100%;
+  height: 100%;
+}
+.soldierImg {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.lowerPart {
+  width: 100%;
+  height: 69px;
+  background-color: #04045f;
+  color: #fff;
+  position: unset;
+  border: 1px solid #fff;
+  border-top: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  opacity: 0.75;
+}
+.lowerPart p {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+  font-size: 28px;
+}
+.lowerPart p a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 5px;
+  border: none;
+}
+.aside {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.leftAside {
+  width: 25%;
+  height: 100vh;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.container a {
+  text-decoration: none;
+  width: 100%;
+}
+.container p {
+  font-family: "Roboto", sans-serif;
+  padding: 24px 40px;
+  color: #000080;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  gap: 20px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  z-index: 1;
+  transition: width 10s ease;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.container p a {
+  text-decoration: none;
+}
+.container p:hover {
+  background-color: rgba(0, 0, 128, 10%);
+  /* background-color: #e1dfdf; */
+}
+p.active {
+  background-color: rgba(0, 0, 128, 20%);
+}
+p.active:hover {
+  background-color: rgba(0, 0, 128, 20%);
+}
+.asideIcon {
+  margin-right: 10px;
+}
+.sidebarImg {
+  margin-right: 10px;
+  color: 0000ff;
+}
+.rightAside {
+  width: 80%;
+}
+@media only screen and (max-width: 320px) {
+  .main {
+    flex-direction: column;
+    /* height: 488px; */
+  }
+  .leftSection {
+    width: 100%;
+    padding: 28px 36px 8px;
+  }
+  .content {
+    width: 100%;
+    margin-left: 0;
+    height: fit-content;
+  }
+  .content h1 {
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+  }
+  .rightSection {
+    width: 100%;
+  }
+  .content p {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-family: "Arimo", sans-serif;
+    padding-bottom: 58px;
+  }
+  .imgArea {
+    margin: 0;
+  }
+  .soldierImg {
+    max-height: 286px;
+    min-width: 300px;
+  }
+  .lowerPart {
+    height: 88px;
+  }
+  .lowerPart p {
+    font-size: 20px;
+    line-height: 24px;
+    margin-right: 0;
+  }
+  .aside {
+    flex-direction: column;
+  }
+  .leftAside {
+    width: 100%;
+    height: fit-content;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 1023px) {
+  .main {
+    flex-direction: column;
+    /* height: 488px; */
+  }
+  .leftSection {
+    width: 100%;
+    padding: 28px 36px 8px;
+  }
+  .content {
+    width: 100%;
+    margin-left: 0;
+    height: fit-content;
+  }
+  .content h1 {
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+  }
+  .rightSection {
+    width: 100%;
+  }
+  .content p {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-family: "Arimo", sans-serif;
+    padding-bottom: 58px;
+  }
+  .imgArea {
+    margin: 0;
+  }
+  .soldierImg {
+    max-height: 307px;
+    min-width: 300px;
+  }
+  .lowerPart {
+    height: 88px;
+  }
+  .lowerPart p {
+    font-size: 20px;
+    line-height: 24px;
+    margin-right: 0;
+  }
+  .aside {
+    flex-direction: column;
+  }
+  .leftAside {
+    width: 100%;
+    height: fit-content;
+  }
+}

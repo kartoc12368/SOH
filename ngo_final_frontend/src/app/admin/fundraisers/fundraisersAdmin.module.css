@@ -1,0 +1,204 @@
+.popup {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(128, 128, 128, 0.276);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stopScroll {
+  position: fixed;
+  overflow: hidden;
+}
+.popup-open .popup {
+  overflow: hidden;
+}
+.popup .hero {
+  background-color: white;
+  padding: 20px;
+  margin: 16px;
+
+  border-radius: 5px;
+  max-width: 800px;
+  width: calc(100% - 40px);
+}
+
+/* Input and textarea styles */
+.popupfundraiserDetail input,
+.popupfundraiserDetail textarea {
+  width: calc(100% - 24px);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+.popupformButton {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  gap: 1em;
+  margin-top: 16px; /* Added margin to separate buttons from form */
+}
+
+.popupformButton .popupfundbutton {
+  padding: 10px 20px;
+  min-width: 95px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.popupfundbutton.filled {
+  background-color: #000080;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.popupsecondfundraiserDetail,
+.popupthirdfundraiserDetail,
+.popupfourthfundraiserDetail {
+  margin-top: 16px;
+}
+
+/* Smooth scrolling for textarea */
+.textarea {
+  resize: vertical;
+  overflow-y: auto;
+  width: 100%;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.rightSection {
+  width: 80%;
+}
+.rightsubSection {
+  margin: 24px 24px 0 24px;
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+}
+.rightSection .rightsubSection h1 {
+  padding: 20px 24px;
+ }
+
+.adminTable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.td {
+  padding: 14px 20px 14px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  border: 1px solid #e4e1e1;
+}
+.td a {
+  cursor: pointer;
+}
+
+.tableRow,
+.tableHead {
+  border: 1px solid #e4e1e1;
+  text-align: left;
+  padding: 8px;
+  background-color: #fff;
+}
+.tableHead {
+  background-color: #f8f8f8;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #38d147;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #38d147;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.tableBody {
+  border: 1px solid #e4e1e1;
+  text-align: left;
+  padding: px;
+  background-color: #fff;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+.paginationButton {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #000080;
+  background-color: #fff;
+  color: #000000;
+  cursor: pointer;
+}
+.paginationButton.filled {
+  background-color: #000080;
+  color: #ffffff;
+  border: none;
+  outline: none;
+}

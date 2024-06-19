@@ -1,0 +1,245 @@
+.mainSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5em;
+  width: 100%;
+}
+.mobileTagline {
+  display: none;
+}
+.mainSection .leftSection {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  bottom: 50px;
+}
+.mainSection .leftSection .mainForm {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid #808080;
+  box-shadow: 0px 0px 7px #8c8b8b;
+  padding-bottom: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+.mainSection .leftSection .mainForm .w100 {
+  width: 100%;
+}
+.mainSection .leftSection .mainForm .lowerForm {
+  margin: 0px 20px;
+}
+.mainSection .leftSection .mainForm .lowerForm .formTag {
+  color: #e1960a;
+  margin: 5px 0 20px 0;
+  font-size: 30px;
+}
+.mainSection
+  .leftSection
+  .mainForm
+  .lowerForm
+  .formInput
+  .inputInside
+  .inputField {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 13px;
+  padding-left: 35px;
+  margin-bottom: 10px;
+  background-color: #f1f1f1;
+}
+.mainSection .leftSection .mainForm .lowerForm .formInput .inputInside .filled {
+  display: flex;
+  font-weight: 600;
+  margin: 1em 0 8px 4px;
+}
+.mainSection
+  .leftSection
+  .mainForm
+  .lowerForm
+  .formInput
+  .inputInside
+  .inputField::placeholder {
+  opacity: 0.5;
+}
+.mainSection .leftSection .mainForm .lowerForm .inputField .inputIcon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainSection .leftSection .mainForm .lowerForm .inputIcon i {
+  position: absolute;
+  opacity: 0.5;
+  padding: 14px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+.mainSection .leftSection .mainForm .lowerForm .inputIcon i.keyIcon {
+  font-weight: 600;
+}
+.mainSection .leftSection .mainForm .lowerForm .inputIcon i.eyeIcon {
+  margin-left: 19em;
+}
+.mainSection .leftSection .mainForm .lowerForm .identification {
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 0 12% 0;
+  font-size: 16px;
+}
+.mainSection
+  .leftSection
+  .mainForm
+  .lowerForm
+  .identification
+  .remember
+  label[for="rememberme"] {
+  position: relative;
+  bottom: 4px;
+}
+.mainSection
+  .leftSection
+  .mainForm
+  .lowerForm
+  .identification
+  .remember
+  input[type="checkbox"] {
+  height: 17px;
+  width: 17px;
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
+}
+.mainSection
+  .leftSection
+  .mainForm
+  .lowerForm
+  .identification
+  .forgot
+  .forgotPass
+  .forgotLink {
+  text-decoration: none;
+  color: #338caa;
+}
+.mainSection .leftSection .mainForm .lowerForm .submit .buttonSubmit {
+  border: 1px solid #070790;
+  background-color: #070790;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  font-size: 19px;
+  font-weight: 500;
+  width: 100%;
+  padding: 8px;
+}
+.mainSection .leftSection .mainForm .lowerForm .submit .buttonSubmit:hover {
+  color: #070790;
+  background-color: #fff;
+}
+.mainSection .rightSection {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.comment {
+  margin-bottom: 10%;
+}
+.mainSection .rightSection .comment {
+  height: 627px;
+  width: 100%;
+  background-image: url(/images/ProjectSection.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  right: 30px;
+  top: 2px;
+}
+.mainSection .rightSection .comment .coreValue {
+  color: #131394;
+  font-size: 2.25em;
+  font-family: Arial, Helvetica, serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 15px 0 0 7%;
+}
+@media only screen and (max-width: 320px) {
+  .mainSection {
+    flex-direction: column;
+    margin: 0;
+  }
+  .mobileTagline {
+    display: block;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #010080;
+  }
+  .mainSection .leftSection {
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+  }
+  .mainSection .leftSection .mainForm .lowerForm .inputIcon i.eyeIcon {
+    margin-left: 15em;
+  }
+  .mainSection .rightSection .comment .coreValue {
+    display: none;
+  }
+  .mainSection .rightSection {
+    width: 100%;
+  }
+  .mainSection .rightSection .comment {
+    height: 315px;
+    right: 0;
+    margin-top: -110px;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 767px) {
+  .mainSection {
+    flex-direction: column;
+    margin: 0;
+  }
+  .mobileTagline {
+    display: block;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #010080;
+  }
+  .mainSection .leftSection {
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+  }
+  .mainSection .rightSection .comment .coreValue {
+    display: none;
+  }
+  .mainSection .rightSection {
+    width: 100%;
+  }
+  .mainSection .rightSection .comment {
+    height: 315px;
+    right: 0;
+    margin-top: -110px;
+  }
+}

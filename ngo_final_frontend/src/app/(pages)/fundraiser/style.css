@@ -1,0 +1,223 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* FundRazr */
+.container {
+  position: relative;
+  display: flex;
+  margin-bottom: 20px;
+}
+.container .img {
+  width: 100%;
+  overflow: hidden;
+}
+.container .resolution {
+  display: flex;
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+.container .resolution .goal {
+  width: 50%;
+  margin-top: 452px;
+}
+.container .resolution .goal .outer-circle {
+  border-radius: 50%;
+  background-color: #d2f2cf;
+  height: 400px;
+  width: 400px;
+  position: relative;
+  margin-left: 145px;
+}
+.container .resolution .goal .outer-circle .in-circle {
+  background-color: #f8eded;
+  position: absolute;
+  border-radius: 50%;
+  height: 340px;
+  width: 340px;
+  margin-left: 29px;
+  margin-top: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container .resolution .goal .outer-circle .in-circle p {
+  text-align: center;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .resolution .aboutmy {
+  width: 50%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  /* margin-right: 20px; */
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 545px;
+}
+.container .resolution .aboutmy h1 {
+  color: #fd8900;
+  font-size: 40px;
+}
+.container .resolution .aboutmy .ctaBtn {
+  color: #010080;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 10px 48px 10px 48px;
+  margin-left: 20px;
+  font-size: 18px;
+}
+.container .resolution .aboutmy .ctaBtn.filled {
+  background-color: #010080;
+  color: #ffffff;
+}
+.container .resolution .outer-circle .in-circle .p span {
+  color: #000080;
+  margin-right: 10px;
+}
+.container .resolution .aboutmy .ctaBtn i {
+  margin-right: 4.5px;
+}
+.container .resolution .aboutmy p {
+  font-size: 24px;
+}
+.in-circle .p {
+  font-size: 30px;
+  color: #0a0a0a;
+}
+.fa-solid,
+.fas.r {
+  font-weight: 900;
+  margin-right: 10px;
+}
+.fa-solid,
+.fas.pe {
+  font-weight: 700;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+/* my story */
+.mystory {
+  border-bottom: 8px solid #c5c5c5;
+  font-size: 32px;
+  gap: 10px;
+  display: flex;
+}
+.mystory a {
+  text-decoration: none;
+  color: #4a4a4a;
+}
+.mystory li {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.our .story {
+  width: 60%;
+  margin-left: 53px;
+  margin-right: 57px;
+  margin-top: 40px;
+}
+.our .story h2 {
+  display: inline-block;
+  font-size: 34px;
+}
+.our .story .pp {
+  color: #000080;
+}
+.our .story .p {
+  font-size: 46px;
+}
+
+.supporters {
+  width: 40%;
+  margin-left: 30px;
+  background-color: #e8e8e8;
+  align-items: center;
+  margin-bottom: 30px;
+  border-radius: 16px;
+}
+.our {
+  width: 100%;
+  display: flex;
+  margin-bottom: 136px;
+}
+.supporters h3 {
+  color: #fd8900;
+  font-size: 30px;
+}
+.support i {
+  margin-right: 24px;
+  color: #000080;
+}
+.support {
+  background-color: #ffffff;
+  padding: 24px 56px 24px 56px;
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+.mystory .ctaBtn {
+  border: none;
+  padding: 10px 60px 10px 60px;
+  font-size: 32px;
+  background-color: #ffffff;
+}
+.mystory .ctaBtn.active {
+  color: #fd8900;
+}
+.mystory .ctaBtn {
+  position: relative;
+}
+.mystory .ctaBtn::after {
+  position: absolute;
+  content: "";
+  bottom: -40px;
+  left: 0;
+  border-radius: 4px;
+  height: 8px;
+  width: 100%;
+  margin: 0 10px;
+  background: #fd8900;
+  opacity: 0;
+}
+
+.mystory .ctaBtn.active:after {
+  opacity: 1;
+}
+.story p {
+  font-size: 20px;
+  margin: 0px;
+}
+.pp {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.ters {
+  padding: 20px 36px 36px 40px;
+}
+
+.ppp {
+  color: #000080;
+  font-size: 50px;
+  font-weight: bold;
+}
+p span {
+  color: #000080;
+}
+
+.resolution {
+  background-image: url("/images/Vector.png");
+}
+.banner {
+  width: 100%;
+}

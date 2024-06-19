@@ -1,0 +1,152 @@
+
+.aside {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.rightAside {
+  width: 75%;
+  background-color: #f8f8f8;
+}
+.upperPortion {
+  background-color: rgba(253, 137, 0, 0.1);
+  min-height: 215px;
+  display: flex;
+  align-items: flex-start;
+}
+.upperPortion h2 {
+  color: #fd8900;
+  font-family: "Inter", sans-serif;
+  padding: 40px 0 0 40px;
+  font-size: 36px;
+  font-weight: 700;
+}
+.donors {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  margin-left: 40px;
+  position: relative;
+  bottom: 35px;
+}
+
+.lowerPortion {
+  margin-top: -2.438rem;
+}
+
+.lowerPortion .totalRaise , .lowerPortion .totalDonors {
+  min-width: 18.75rem;
+  border-radius: 1rem;
+}
+.totalRaise {
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background: linear-gradient(to right, white, white),
+    linear-gradient(to bottom, #000080, #9f959520);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.totalRaise i,
+.totalDonors i {
+  margin-right: 10px;
+}
+
+.totalRaise p img {
+  margin-top: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+.totalDonors p img {
+  margin-top: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+.totalRaise .amtMoney,
+.no-donor {
+  font-family: "Roboto", sans-serif;
+  margin: 20px 0 0 60px;
+  font-size: 28px;
+  font-weight: 700;
+}
+.totalDonors {
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background: linear-gradient(to right, white, white),
+    linear-gradient(to bottom, #0fa900, #9f959520);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  min-width: 279px;
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.totalDonors .no-donor {
+  font-weight: 700;
+  margin: 20px 0 0 60px;
+  font-size: 28px;
+}
+.totalRaise p,
+.totalDonors p {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #171a1f;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media only screen and (max-width: 320px) {
+  .aside {
+    flex-direction: column;
+  }
+  .rightAside {
+    width: 100%;
+  }
+  .upperPortion {
+    min-height: 298px;
+  }
+  .upperPortion h2 {
+    padding: 40px 0 0 16px;
+    font-size: 31px;
+  }
+  .lowerPortion {
+    margin: 0;
+  }
+  .donors {
+    flex-direction: column;
+    padding-top: 60px;
+    bottom: 135px;
+    margin: 15px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 767px) {
+  .aside {
+    flex-direction: column;
+  }
+  .rightAside {
+    width: 100%;
+  }
+  .upperPortion {
+    height: 298px;
+  }
+  .lowerPortion {
+    margin: 0;
+  }
+  .donors {
+    flex-direction: column;
+    padding-top: 60px;
+    bottom: 135px;
+  }
+  .lowerPortion .totalRaise , .lowerPortion .totalDonors {
+    max-width: 300px;
+  }
+}

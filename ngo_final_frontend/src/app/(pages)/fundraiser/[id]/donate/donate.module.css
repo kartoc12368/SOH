@@ -1,0 +1,144 @@
+.donateform {
+  background-image: url("/images/Frame.svg");
+  height: auto;
+  min-height: 114vh;
+}
+.donateform .wrapperdonation {
+  width: 100%;
+  min-width: 100vh;
+  display: flex;
+}
+
+.donateform .donationtitle {
+  margin: 0px;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  font-family: "Inter", sans-serif;
+}
+.donateform .donationtitle h1 {
+  display: inline-block;
+  margin: 0px;
+  left: 21px;
+  font-size: 32px;
+  line-height: 39px;
+  font-weight: 700;
+  color: #e88b1d;
+  font-family: "Inter", sans-serif;
+  position: relative;
+}
+.donateform form h1 {
+  position: relative;
+  margin: 0px;
+  top: 20px;
+}
+.donateform .donationimg {
+  width: 50%;
+  display: flex;
+  top: 70px;
+  position: relative;
+  font-family: "Inter", sans-serif;
+}
+.donateform .donationdetdetails {
+  width: 50%;
+  position: relative;
+  top: 46px;
+  font-family: "Inter", sans-serif;
+  padding-left: 65px;
+}
+.donateImg {
+  mix-blend-mode: multiply;
+}
+.donateform .donationdetdetails form .details {
+  display: flex;
+  margin-top: 16px;
+  align-items: baseline;
+
+}
+.donateform .donationdetdetails form .details label {
+  display: block;
+  position: relative;
+  margin-bottom: 5px;
+}
+.donateform .donationdetdetails form label {
+  display: block;
+}
+.donateform .donationdetdetails input {
+  padding: 8px 12px;
+  width: 250px;
+  height: 30px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+}
+.donateform .donationdetdetails form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.donateform .donationdetdetails form label::after {
+  content: " *";
+  color: #ff0000;
+}
+.donateform .donationdetails {
+  padding-right: 10px;
+}
+.donateform .donnerdetails input {
+  display: block;
+  padding: 8px 12px;
+}
+.donateform .details .donationdetails.com input {
+  width: 250px; 
+  height: 30px;
+}
+.comment {
+  padding: 10px;  
+}
+.donateform .form .catBtn {
+  background-color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+  width: 94px;
+  top: 35px;
+  height: 44px;
+  font-size: 16px;
+  color: #79747e;
+  border: 1px solid;
+  border-radius: 8px;
+  float: right;
+}
+
+.donate {
+  margin-left: 10px;
+
+  font-family: "Inter", sans-serif;
+}
+.donateform .form {
+  width: 580px;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+  padding: 24px;
+  height: 760px;
+  box-shadow: 4px 4px 20px 0px #0000001a;
+}
+.num label::after {
+  display: none;
+}
+.state {
+  padding: 5px 12px;
+  width: 250px;
+  height: 30px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+}
+.donateform .donationdetails input placeholder {
+  border: none;
+  text-decoration: none;
+}
+.donates {
+  display: flex;
+  float: right;
+  margin-right: 18px;
+}

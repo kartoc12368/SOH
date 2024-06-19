@@ -1,0 +1,486 @@
+.sharePopupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sharePopup {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  width: 350px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shareToggle {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.shareIcon {
+  width: 4em;
+  border-radius: 17%;
+  padding: 15px;
+  background-color: whitesmoke;
+  height: 4em;
+  margin-right: 5px;
+}
+.shareToggle :hover {
+  background-color: rgb(175, 171, 171);
+}
+
+.shareLabel {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.mainClass {
+  width: 100%;
+}
+.mainClass .contributers {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: -245px;
+}
+
+.goal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: max-content;
+}
+.mainClass .contributers .goal .subGoal {
+  height: 384px;
+  width: 384px;
+  background-color: #0fa900;
+  background: radial-gradient(circle, #0fa900 0%, #d2f2cf 90%);
+  border-radius: 50%;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mainClass .contributers .goal .subGoal .currentGoal {
+  font-size: 90px;
+  font-weight: 500;
+  color: #000080;
+}
+.mainClass .contributers .goal .subGoal .completeGoal {
+  font-size: 46px;
+  font-weight: 400;
+  font-family: Helvetica;
+}
+.mainClass .contributers .goal .subGoal .totalGoal {
+  color: #000080;
+  font-weight: 500;
+  font-size: 48px;
+}
+.resolutionBtn {
+  display: flex;
+  font-family: "Roboto";
+  justify-content: center;
+  gap: 16px;
+  padding: 32px 45px 0 45px;
+}
+.resolutionBtn .mainbtn {
+  padding: 11px 28px;
+  border-radius: 4px;
+  border: 1px solid #010080;
+  color: #010080;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.resolutionBtn .resolutionLink {
+  text-decoration: none;
+}
+.resolutionBtn .mainbtn.filled {
+  background-color: #000080;
+  color: #fff;
+  outline: none;
+}
+.fundraiserResolution {
+  display: flex;
+  width: 50%;
+  align-items: flex-start;
+  gap: 20px;
+  height: max-content;
+  margin-top: 275px;
+}
+
+.fundraiserResolution .fundraiserImg .userImg {
+  border: 4px solid #909090;
+  object-fit: cover;
+}
+.fundraiserResolution .fundraiserImg {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.fundraiserResolution .fundraiserImg .fundraiserName {
+  text-align: center;
+  width: 125px;
+  height: 24px;
+  font-weight: 500;
+  line-height: 24.2px;
+  font-size: 20px;
+}
+.fundraiserResolution .fundraiserDetail {
+  text-align: justify;
+}
+.fundraiserResolution .fundraiserDetail h1 {
+  font-family: "Roboto", sans-serif;
+  color: #fd8900;
+  font-size: 28px;
+  font-weight: 700;
+}
+.fundraiserResolution .fundraiserDetail p {
+  /* font-family: "Inter"; */
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: 400;
+  color: #303030;
+  padding-top: 8px;
+}
+.article {
+  width: 100%;
+  display: flex;
+  padding-top: 100px;
+  gap: 60px;
+  border-bottom: 2px solid #c5c5c5;
+  position: relative;
+}
+.article .userStory {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 32px;
+  text-align: center;
+  border: none;
+  position: relative;
+  outline: none;
+  padding: 10px 60px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  left: 60px;
+}
+.article .userStory.active {
+  padding: 10px 20px;
+  color: #fd8900;
+}
+.article .userStory::after {
+  position: absolute;
+  content: "";
+  bottom: -2px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  margin: 0 2px;
+  border-radius: 2px;
+  background: #fd8900;
+  opacity: 0;
+}
+.article .userStory.active::after {
+  opacity: 1;
+}
+.article .userStory.filled {
+  font-weight: 500;
+  color: #484848;
+}
+.mainAside {
+  width: 100%;
+  display: flex;
+  padding-bottom: 30px;
+}
+
+.mainAside .leftAside {
+  width: 60%;
+  padding: 28px 60px 0;
+}
+
+.mainAside .leftAside .aboutMe {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 36px;
+  color: #303030;
+}
+.mainAside .leftAside .reason {
+  font-weight: 700;
+  font-size: 28px;
+  font-family: "Roboto";
+  line-height: 32px;
+  color: #484848;
+  margin: 28px 0 16px 0;
+}
+.mainAside .rightAside {
+  width: 40%;
+}
+.mainAside .rightAside .container {
+  background-color: #ededed;
+  padding: 36px 28px 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.mainAside .rightAside .container .supporters {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  color: #fd8900;
+  padding: 0px 0 20px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+.mainAside .rightAside .container .allSupporters {
+  display: flex;
+
+  flex-direction: column;
+  position: relative;
+  bottom: 20px;
+  height: 60vh;
+  overflow-y: auto;
+}
+.mainAside .rightAside .container .allSupporters::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+.mainAside .rightAside .container .allSupporters::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #3e3d3d;
+}
+.mainAside .rightAside .container .allSupporters::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+.mainAside .rightAside .container .ourSupporters {
+  padding: 16px 20px;
+  font-family: "Roboto";
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  font-weight: 550;
+  font-size: 20px;
+  line-height: 23px;
+  color: #171a1f;
+  background: #0000801a;
+  margin: 16px 0px;
+}
+
+.mainAside .rightAside .container .ourSupporters .rightTriangle {
+  color: #000080;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* circular  */
+.progress-ring {
+  display: block;
+  margin: 20px auto;
+}
+
+.circular-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background: #0fa900;
+  background: radial-gradient(circle, #0fa900 0%, #d2f2cf 90%);
+}
+.circular-progress .subGoal {
+  height: 440px;
+  width: 440px;
+  background-color: #fafafa;
+  border-radius: 50%;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.subGoal .currentGoal {
+  font-size: 90px;
+  font-weight: 500;
+  color: #000080;
+}
+.subGoal .percentage {
+  font-family: Helvetica, sans-serif;
+  font-size: 46px;
+  font-weight: 400;
+}
+
+.subGoal .totalGoal {
+  color: #000080;
+  font-weight: 500;
+  font-family: Helvetica;
+  font-size: 48px;
+}
+/* clipboard */
+
+.copy {
+  /* button */
+  --button-bg: #cccccc;
+  --button-hover-bg: #cccccc;
+  --button-text-color: #353434;
+  --button-hover-text-color: #353434;
+  --button-border-radius: 10px;
+  --button-diameter: 36px;
+  --button-outline-width: 1px;
+  --button-outline-color: rgb(141, 141, 141);
+  /* tooltip */
+  --tooltip-bg: #f4f3f3;
+  --toolptip-border-radius: 4px;
+  --tooltip-font-family: Menlo, Roboto Mono, monospace;
+  /* 👆 this field should not be empty */
+  --tooltip-font-size: 12px;
+  /* 👆 this field should not be empty */
+  --tootip-text-color: rgb(50, 50, 50);
+  --tooltip-padding-x: 7px;
+  --tooltip-padding-y: 7px;
+  --tooltip-offset: 8px;
+  /* --tooltip-transition-duration: 0.3s; */
+  /* 👆 if you need a transition, 
+  just remove the comment,
+  but I didn't like the transition :| */
+}
+
+.copy {
+  box-sizing: border-box;
+  width: var(--button-diameter);
+  height: var(--button-diameter);
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 45%;
+  position: relative;
+  top: 34px;
+  outline: none;
+}
+
+.tooltip {
+  position: absolute;
+  opacity: 0;
+  visibility: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font: var(--tooltip-font-size) var(--tooltip-font-family);
+  color: var(--tootip-text-color);
+  background: var(--tooltip-bg);
+  padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+  border-radius: var(--toolptip-border-radius);
+  pointer-events: none;
+  transition: all var(--tooltip-transition-duration)
+    cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.tooltip::before {
+  content: attr(data-text-initial);
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--tooltip-padding-y) / 2 * -1);
+  width: var(--tooltip-padding-y);
+  height: var(--tooltip-padding-y);
+  background: inherit;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: -999;
+  pointer-events: none;
+}
+
+.copy svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkmark {
+  display: none;
+}
+
+/* actions */
+
+.copy:hover .tooltip,
+.copy:focus:not(:focus-visible) .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: calc((100% + var(--tooltip-offset)) * -1);
+}
+
+.copy:focus:not(:focus-visible) .tooltip::before {
+  content: attr(data-text-end);
+}
+
+.copy:focus:not(:focus-visible) .clipboard {
+  display: none;
+}
+
+.copy:focus:not(:focus-visible) .checkmark {
+  display: block;
+}
+
+.copy:hover,
+.copy:focus {
+  background-color: var(--button-hover-bg);
+}
+
+.copy:active {
+  outline: var(--button-outline-width) solid var(--button-outline-color);
+}
+
+.copy:hover svg {
+  color: var(--button-hover-text-color);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 65px;
+}
+.pageItem {
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: #000080;
+  color: #ffffff;
+  border: none;
+  outline: none;
+}

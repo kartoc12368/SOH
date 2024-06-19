@@ -1,0 +1,62 @@
+.section {
+  width: 100%;
+  height: 510px;
+
+  display: flex;
+}
+.rightwrapper {
+  width: 80%;
+  display: flex;
+}
+.rightwrapper .rightmain {
+  display: flex;
+  width: 100%;
+  height: 198px;
+  position: relative;
+  background-color: #ffcc99;
+}
+
+.rightwrapper .mainbox {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 24px;
+  gap: 40px;
+  padding-top: 140px;
+  height: 162px;
+}
+.rightwrapper .right ::after {
+  content: "";
+  display: flex;
+  position: absolute;
+  top: 0;
+  background-color: #ffa64d;
+}
+.rightwrapper .box {
+  width: 26.66%;
+  padding: 15px;
+  border: 2px solid #1a8a10;
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-around;
+}
+.rightwrapper .box p {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 600;
+}
+.rightwrapper .box p span:last-child {
+  font-size: 18px;
+  font-weight: 400;
+}
+.rightwrapper .box Image {
+  margin: 10px;
+}
+.rightwrapper .box.secend {
+  border: 3px solid #3f3ec3;
+}
