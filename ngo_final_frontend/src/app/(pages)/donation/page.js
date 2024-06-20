@@ -228,7 +228,6 @@ export default function Page() {
     );
     if (!certificate) {
       delete dataToSend.pan;
-      delete dataToSend.donor_address;
     }
 
     try {
@@ -593,6 +592,22 @@ export default function Page() {
                   </span>
                 )}
               </div>
+              <div className={styles.donor_address}>
+                <label htmlFor="donor_address">Address*</label>
+                <input
+                  type="text"
+                  placeholder="Enter your address"
+                  id="donor_address"
+                  name="donor_address"
+                  value={formData.donor_address}
+                  onChange={handleChange}
+                />
+                {errors.donor_address && (
+                  <span className={styles.error} style={{ color: "red" }}>
+                    {errors.donor_address}
+                  </span>
+                )}
+              </div>
               <div className={styles.gCerti}>
                 <p>Do you want 80G Certificate?</p>
                 <div className={styles.chooseOption}>
@@ -635,22 +650,6 @@ export default function Page() {
                     {errors.pan && (
                       <span className={styles.error} style={{ color: "red" }}>
                         {errors.pan}
-                      </span>
-                    )}
-                  </div>
-                  <div className={styles.donor_address}>
-                    <label htmlFor="donor_address">Address*</label>
-                    <input
-                      type="text"
-                      placeholder="Enter your address"
-                      id="donor_address"
-                      name="donor_address"
-                      value={formData.donor_address}
-                      onChange={handleChange}
-                    />
-                    {errors.donor_address && (
-                      <span className={styles.error} style={{ color: "red" }}>
-                        {errors.donor_address}
                       </span>
                     )}
                   </div>
