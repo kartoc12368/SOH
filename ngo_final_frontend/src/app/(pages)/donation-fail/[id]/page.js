@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import styles from "../donationFail.module.css";
 import axios from "axios";
-import jsPDF from "jspdf";
 import { renderField } from "@/validation";
 
 export default function page({ params }) {
