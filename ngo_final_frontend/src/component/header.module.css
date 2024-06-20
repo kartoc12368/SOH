@@ -354,7 +354,7 @@
   right: -100%;
   width: 100%;
   height: 100%;
-  background-color: #111;
+  background-color: #FAFAFA;
   z-index: 1000;
   overflow-y: auto;
   transition: right 0.3s ease;
@@ -368,48 +368,49 @@
 
 .sidebar .closebtn {
   position: absolute;
-  top: 20px;
+  top: 50px;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
   background: none;
   border: none;
-  color: white;
+  color: #000000;
 }
 
 .sidebar nav ul {
-  padding: 0;
   list-style: none;
   width: 100%;
+  padding: 125px 0 0 0;
 }
-
 .sidebar nav ul li {
   padding: 8px;
   text-align: left;
 }
-
 .sidebar nav ul li a {
-  padding: 8px 32px;
+  padding: 8px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #303030;
   display: block;
   transition: 0.3s;
+  border-top: 1px solid #dddddd;
 }
-
-.sidebar nav ul li a:hover {
-  color: #f1f1f1;
+.sidebar nav ul li .contactSidebar {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #303030;
+  display: block;
+  transition: 0.3s;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
 }
-
 .sidebar nav ul li details summary {
-  padding: 8px 32px;
+  padding: 8px 8px 15px;
   cursor: pointer;
   font-size: 25px;
-  color: #818181;
-}
-
-.sidebar nav ul li details summary:hover {
-  color: #f1f1f1;
+  color: #303030;
+  border-top: 1px solid #dddddd;
 }
 
 .sidebar .sidebarBtn {
@@ -434,6 +435,22 @@
 .sidebar .sidebarBtn .innerBtn:hover {
   background-color: #575757;
 }
+@media (max-width: 1023px) {
+  .head .headerNav {
+    display: none;
+  }
+
+  .head .headerBtn .headerIcon {
+    display: block;
+    color: #303030;
+    cursor: pointer;
+  }
+
+  .profileimg {
+    margin: 0;
+  }
+}
+
 
 @media (min-width: 1024px) {
   .head .headerNav {
@@ -449,21 +466,5 @@
   }
   .headerBtn i {
     display: none;
-  }
-}
-
-@media (max-width: 1023px) {
-  .head .headerNav {
-    display: none;
-  }
-
-  .head .headerBtn .headerIcon {
-    display: block;
-    color: #303030;
-    cursor: pointer;
-  }
-
-  .profileimg {
-    margin: 0;
   }
 }

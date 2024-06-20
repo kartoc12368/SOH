@@ -366,7 +366,7 @@ export default function Header() {
                 legacyBehavior
                 href="https://supportourheroes.in/contact-us/"
               >
-                <a>Contact Us</a>
+                <a className={styles.contactSidebar}>Contact Us</a>
               </Link>
             </li>
           </ul>

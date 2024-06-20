@@ -209,6 +209,7 @@ export default function Page() {
                   id="payment_option"
                   name="payment_option"
                   onChange={handleInputChange}
+                  className={styles.paymentMode}
                 >
                   <option value="">Not selected</option>
                   <option value="online">Online</option>
@@ -224,6 +225,7 @@ export default function Page() {
                   id="payment_status"
                   name="payment_status"
                   onChange={handleInputChange}
+                  className={styles.paymentMode}
                 >
                   <option value="">Not selected</option>
                   <option value="success">Success</option>

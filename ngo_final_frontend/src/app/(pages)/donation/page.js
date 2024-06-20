@@ -4,7 +4,6 @@ import { useState } from "react";
 import axios from "axios";
 import Right from "./right";
 import {
-  EmailShareButton,
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
@@ -12,7 +11,6 @@ import {
 } from "react-share";
 import { FaFacebook, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { MdOutlineMail } from "react-icons/md";
 
 export default function Page() {
   const images = [
@@ -75,7 +73,7 @@ export default function Page() {
   });
 
   const [donationOption, setDonationOption] = useState("donateAnyAmount");
-  const [want80GCertificate, setWant80GCertificate] = useState(false);
+  const [certificate, setcertificate] = useState(false);
   const [checkboxCounts, setCheckboxCounts] = useState({
     schoolFees: 0,
     medicalCare: 0,
@@ -87,37 +85,28 @@ export default function Page() {
   const validateForm = () => {
     const newErrors = {};
     if (formData.amount <= 0) {
-      newErrors.amount = "Invalid Amount";
+      newErrors.amount = "Pleas enter valid amount.";
     }
     if (!formData.donor_first_name.trim()) {
-      newErrors.donor_first_name = "Please enter first name.";
+      newErrors.donor_first_name = "Please entet First name.";
     }
-    if (
-      !formData.donor_email.trim() ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.donor_email)
-    ) {
-      newErrors.donor_email = "Please enter valid email.";
-    }
+
     if (
       !formData.donor_phone.trim() ||
       !/^\d{10}$/.test(formData.donor_phone)
     ) {
       newErrors.donor_phone = "Mobile Number must be 10 digits";
     }
-    if (want80GCertificate) {
+    if (certificate) {
       if (!formData.pan.trim()) {
         newErrors.pan = "PAN number is required for 80G certificate.";
       }
       if (!formData.donor_address.trim()) {
-        newErrors.donor_address =
-          "donor_address is required for 80G certificate.";
+        newErrors.donor_address = "Address is required for 80G certificate.";
       }
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
-  const formatAmountWithCommas = (amount) => {
-    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   const handleChange = (e) => {
@@ -130,10 +119,12 @@ export default function Page() {
 
   const handleDonationOptionChange = (e) => {
     setDonationOption(e.target.value);
+    // if (e.target.value !== "donateAnyAmount") {
     setFormData({
       ...formData,
-      amount: e.target.value === "donateAnyAmount" ? 0 : formData.amount,
+      amount: 0,
     });
+    // } else {
     setSelectedCheckboxes([]);
     setCheckboxCounts({
       schoolFees: 0,
@@ -141,9 +132,10 @@ export default function Page() {
       ration: 0,
     });
   };
+  // };
 
   const handle80GCertificateChange = (e) => {
-    setWant80GCertificate(e.target.value === "yes");
+    setcertificate(e.target.value === "yes");
   };
 
   const handleCheckboxChange = (e) => {
@@ -154,7 +146,10 @@ export default function Page() {
       ration: 1250,
     };
 
-    if (checked) {
+    if (
+      checked
+      // && donationOption !== "donateProjects"
+    ) {
       setDonationOption("donateProjects");
     }
 
@@ -168,7 +163,8 @@ export default function Page() {
     setFormData((prevData) => {
       const newAmount = checked
         ? prevData.amount + amountMap[id] * (checkboxCounts[id] + 1)
-        : prevData.amount - amountMap[id] * checkboxCounts[id];
+        : prevData.amount > 0 &&
+          (prevData.amount - amountMap[id]) * checkboxCounts[id];
       return { ...prevData, amount: newAmount };
     });
 
@@ -177,6 +173,7 @@ export default function Page() {
       [id]: checked ? 1 : 0,
     }));
   };
+  // console.log(formData.amount);
 
   const incrementCount = (id) => {
     const amountMap = {
@@ -206,7 +203,7 @@ export default function Page() {
       const newCount = Math.max(0, prevCounts[id] - 1);
       setFormData((prevData) => ({
         ...prevData,
-        amount: prevData.amount - amountMap[id],
+        amount: prevData.amount - (prevCounts[id] > 0 ? amountMap[id] : 0),
       }));
       return { ...prevCounts, [id]: newCount };
     });
@@ -217,18 +214,19 @@ export default function Page() {
     if (!validateForm()) {
       return;
     }
-
     const donation_activity = {};
     selectedCheckboxes.forEach((id) => {
       donation_activity[id] = checkboxCounts[id];
     });
-
-    const dataToSend = {
-      ...formData,
-      amount: parseFloat(formData.amount).toFixed(2),
-      donation_activity,
-    };
-    if (!want80GCertificate) {
+    const dataToSend = Object.fromEntries(
+      Object.entries({
+        ...formData,
+        amount: Number(formData.amount),
+        certificate: certificate,
+        donation_activity,
+      }).filter(([_, value]) => value !== "")
+    );
+    if (!certificate) {
       delete dataToSend.pan;
       delete dataToSend.donor_address;
     }
@@ -324,12 +322,7 @@ export default function Page() {
                   type="text"
                   className={styles.amount}
                   name="amount"
-                  value={
-                    donationOption === "donateAnyAmount" &&
-                    formData.amount === 0
-                      ? ""
-                      : formData.amount
-                  }
+                  value={formData.amount > 0 ? formData.amount : ""}
                   onChange={handleChange}
                   placeholder="Enter amount"
                   disabled={donationOption !== "donateAnyAmount"}
@@ -547,6 +540,7 @@ export default function Page() {
                     id="firstName"
                     name="donor_first_name"
                     value={formData.donor_first_name}
+                    placeholder="Enter first name"
                     onChange={handleChange}
                   />
                   {errors.donor_first_name && (
@@ -561,30 +555,28 @@ export default function Page() {
                     type="text"
                     id="lastName"
                     name="lastName"
+                    placeholder="Enter last name"
                     value={formData.lastName}
                     onChange={handleChange}
                   />
                 </div>
               </div>
               <div className={styles.email}>
-                <label htmlFor="email">Email*</label>
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="donor_email"
+                  placeholder="Enter email"
                   value={formData.donor_email}
                   onChange={handleChange}
                 />
-                {errors.donor_email && (
-                  <span className={styles.error} style={{ color: "red" }}>
-                    {errors.donor_email}
-                  </span>
-                )}
               </div>
               <div className={styles.pNumber}>
                 <label htmlFor="phoneNumber">Phone Number*</label>
                 <input
                   type="text"
+                  placeholder="Enter phone name"
                   id="phoneNumber"
                   onInput={(e) => {
                     e.target.value = e.target.value
@@ -610,7 +602,7 @@ export default function Page() {
                       id="no"
                       name="certificate"
                       value="no"
-                      checked={!want80GCertificate}
+                      checked={!certificate}
                       onChange={handle80GCertificateChange}
                     />
                     <label htmlFor="no">No</label>
@@ -621,19 +613,20 @@ export default function Page() {
                       id="yes"
                       name="certificate"
                       value="yes"
-                      checked={want80GCertificate}
+                      checked={certificate}
                       onChange={handle80GCertificateChange}
                     />
                     <label htmlFor="yes">Yes</label>
                   </div>
                 </div>
               </div>
-              {want80GCertificate && (
+              {certificate && (
                 <>
                   <div className={styles.panNo}>
                     <label htmlFor="pan">PAN No.*</label>
                     <input
                       type="text"
+                      placeholder="Enter your PAN"
                       id="pan"
                       name="pan"
                       value={formData.pan}
@@ -649,6 +642,7 @@ export default function Page() {
                     <label htmlFor="donor_address">Address*</label>
                     <input
                       type="text"
+                      placeholder="Enter your address"
                       id="donor_address"
                       name="donor_address"
                       value={formData.donor_address}
@@ -664,7 +658,7 @@ export default function Page() {
               )}
               <div className={styles.donationBtn}>
                 <button type="submit" className={styles.donateBtn}>
-                  Donate &nbsp; ₹{formatAmountWithCommas(formData.amount)}
+                  Donate &nbsp; ₹ {formData.amount}
                 </button>
               </div>
             </form>
@@ -729,9 +723,6 @@ export default function Page() {
             <WhatsappShareButton url={shareURL}>
               <FaWhatsapp color="#25D366" className={styles.shareIcon} />
             </WhatsappShareButton>
-            <EmailShareButton url={shareURL}>
-              <img src="/images/gmail.svg" className={styles.shareIcon} />
-            </EmailShareButton>
           </div>
         </section>
       </main>

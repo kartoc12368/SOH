@@ -44,16 +44,19 @@
 }
 
 .rightsection {
-  width: 80%;
+  width: 75%;
   padding: 40px 20px;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+  margin: 6px;
 }
-
 .rightSection h1 {
   color: #fd8900;
   font-family: "Roboto", sans-serif;
   padding-bottom: 40px;
   font-weight: 700;
   font-size: 36px;
+  padding-left: 20px;
 }
 .form {
   padding: 20px;
@@ -66,8 +69,8 @@
 }
 .upperForm {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 15px;
 }
 .upperForm span,
 .lowerForm span {
@@ -106,9 +109,8 @@
   border: none;
 }
 .form input {
-  min-width: 250px;
+  min-width: 200px;
   width: 100%;
-  height: 45px;
   border: 1px solid #d9d9d9;
   outline: none;
   margin-top: 8px;
@@ -143,7 +145,7 @@
 .table th,
 .table td {
   border: 1px solid #d9d9d9;
-  text-align: center;
+  text-align: left;
   padding: 8px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -174,9 +176,8 @@
   font-size: 16px;
   font-weight: 400;
   background-color: white;
-  min-width: 250px;
+  min-width: 200px;
   width: 100%;
-  height: 45px;
 }
 .fromDate [type="date"]::-webkit-calendar-picker-indicator {
   color: rgba(0, 0, 0, 0);
@@ -196,6 +197,13 @@
   width: 20px;
   height: 20px;
   border-width: thin;
+}
+.paymentMode {
+  appearance: none;
+  background-image: url(/images/downIcon.png);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 25px;
 }
 .tableMain {
   overflow-x: scroll;
@@ -233,7 +241,6 @@
   border: 2px solid #000080;
   /* outline: none; */
   padding: 10px 20px;
-  width: 100px;
   display: flex;
   align-items: center;
   gap: 10px;

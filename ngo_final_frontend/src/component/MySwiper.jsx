@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import "./swiper.css";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { HiMiniMagnifyingGlassPlus } from "react-icons/hi2";
 
 const MySwiper = ({ image }) => {
   let sliderConfig = {
@@ -59,7 +59,7 @@ const MySwiper = ({ image }) => {
                 alt={`Slide ${index + 1}`}
               />
 
-              <FaMagnifyingGlass className="magnify" />
+              <HiMiniMagnifyingGlassPlus className="magnify" />
             </a>
           </SwiperSlide>
         ))}

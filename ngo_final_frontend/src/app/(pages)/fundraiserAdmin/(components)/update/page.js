@@ -57,7 +57,7 @@ export default function Update() {
         data,
         config
       );
-      fetchData();
+      fundraiserCtx.fetchData();
       showSwal("success", "Done", "Update Succesfully!!");
     } catch (error) {
       console.error("Error submitting form:", error);

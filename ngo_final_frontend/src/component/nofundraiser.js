@@ -11,7 +11,7 @@ export default function Notfundraiser() {
       setCount((prevCount) => prevCount - 1);
     }, 1000);
 
-    // Redirect when count reaches 0
+  
     if (count === 0) {
       clearInterval(countdownInterval);
       router.replace("/");

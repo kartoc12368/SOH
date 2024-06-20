@@ -3,11 +3,10 @@
   display: flex;
 }
 .rightSection {
-  width: 80%;
-  margin: 0;
+  width: 75%;
+  padding: 24px;
 }
 .rightsubSection {
-  margin: 24px 24px 0 24px;
   border: 1px solid #eaecf0;
   border-radius: 8px;
 }
@@ -26,13 +25,11 @@
   gap: 10px;
 }
 .form input {
-  height: 40px;
-
-  width: 365px;
+  min-width: 280px;
   margin-top: 6px;
   border: 1px solid #d0d5dd;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 12px;
   box-shadow: 0px 1px 2px 0px #1018280d;
   outline: none;
 }
@@ -48,12 +45,13 @@
 }
 .cancelBtn {
   padding: 10px 20px;
-  border: 1px solid #79747e;
   color: #fff;
   background-color: #010080;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 .cancelBtn Link {
   text-decoration: none;
@@ -62,6 +60,7 @@
 .cancelBtn.filled {
   background-color: #fff;
   color: #79747e;
+  border: 1px solid #79747e;
 }
 .cancelBtn.filled Link {
   color: #79747e;

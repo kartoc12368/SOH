@@ -1,4 +1,4 @@
-import MySwiper, { MySwiperTeamMember, OneSwiper } from "@/component/MySwiper";
+import MySwiper, { MySwiperTeamMember } from "@/component/MySwiper";
 
 export default function Right({ styles, images, teamData }) {
   return (

@@ -2,7 +2,7 @@
   display: flex;
 }
 .mainFundraiser .rightSection {
-  width: 80%;
+  width: 75%;
 }
 .mainFundraiser .rightSection .rightpart {
   border: 1px solid #eaecf0;
@@ -30,9 +30,9 @@
 .firstdonationDetail input,
 .seconddonationDetail input,
 .selectNation {
-  width: 365px;
-  height: 40px;
-  padding: 8px 12px;
+  min-width: 280px;
+  width: 100%;
+  padding: 10px 12px;
   border: 1px solid #d0d5dd;
   border-radius: 8px;
   box-shadow: 0px 1px 2px 0px #1018280d;
@@ -41,7 +41,19 @@
   margin-top: 6px;
   outline: none;
 }
-
+.selectNation {
+  max-width: 280px;
+  width: 100%;
+  appearance: none;
+  background-image: url(/images/downIcon.png);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+.bankName {
+  max-width: 280px;
+  width: 100%;
+}
 .mainFundraiser .rightSection .rightpart .mainForm input::placeholder {
   color: #667085;
 }
@@ -68,7 +80,8 @@
 .firstdonationDetail input,
 .seconddonationDetail input,
 .selectNation {
-  width: 365px;
+  min-width: 280px;
+  width: 100%;
 }
 .selectNation {
   background-color: #ffffff;
@@ -78,13 +91,11 @@
   display: flex;
   gap: 8px;
   justify-content: flex-end;
-  margin-top: 25px;
   margin-bottom: 25px;
   padding: 0 45px;
 }
 .mainFundraiser .rightSection .rightpart .formButton .fundButton {
-  padding: 10px 20px;
-  height: 45px;
+  padding: 10px 22px;
   width: 95px;
   border: 1px solid #79747e;
   border-radius: 8px;
@@ -102,13 +113,15 @@
   color: #ff0000;
 }
 .donation_date {
-  width: 170px;
+  min-width: 280px;
+  width: 100%;
   color: #667085;
 }
 /* CSS for styling datalist options */
 datalist#fundraiserPageList {
   background-color: #ffffff;
-  width: 365px;
+  min-width: 280px;
+  width: 100%;
   border-radius: 8px;
   border: 1px solid #d0d5dd;
   box-shadow: 0px 1px 2px 0px #1018280d;
@@ -118,16 +131,21 @@ datalist#fundraiserPageList option {
   padding: 5px 10px;
 }
 .donationDetail select {
+  min-width: 280px;
+  width: 100%;
   border: 1px solid #d9d9d9;
   outline: none;
   color: #505050;
   margin-top: 6px;
-  padding: 8px 12px;
+  padding:11px 12px;
   border-radius: 6px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 400;
   background-color: white;
-  width: 365px;
-  height: 40px;
+  appearance: none;
+  background-image: url(/images/downIcon.png);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
 }

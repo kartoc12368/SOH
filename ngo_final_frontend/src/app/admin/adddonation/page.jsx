@@ -450,7 +450,7 @@ export default function page() {
                         className={styles.donation_date}
                         required
                         style={{
-                          width: "365px",
+                          width: "280px",
                           color: "#667085",
                         }}
                         max={new Date().toISOString().split("T")[0]}
@@ -477,6 +477,7 @@ export default function page() {
                         type="text"
                         name="donor_bank_name"
                         id="bankName"
+                        className={styles.bankName}
                         value={formData.donor_bank_name}
                         onChange={handleChange}
                       >

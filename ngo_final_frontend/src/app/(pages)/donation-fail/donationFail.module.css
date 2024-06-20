@@ -1,193 +1,195 @@
 .mainClass {
-    width: 100%;
-    background-color: #F9F9F9;
-    box-shadow: 0px 3px 6px 0px #120F281F;
-    padding: 40px 60px;
+  width: 100%;
+  background-color: #f9f9f9;
+  box-shadow: 0px 3px 6px 0px #120f281f;
+  padding: 40px 60px;
+}
+.donateBtn a {
+  color: inherit;
+  text-decoration: none;
 }
 .pageSection {
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0px 2px 8px 0px #00000026;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 8px 0px #00000026;
 }
 .pageSection h1 {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 40px;
-    color: #FD8900;
-    margin: 20px 40px;
-    padding-top: 20px;
-    border-bottom: 1px solid#303030;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 40px;
+  color: #fd8900;
+  margin: 20px 40px;
+  padding-top: 20px;
+  border-bottom: 1px solid#303030;
 }
 .pageSection .message {
-    width: 100%;
-    padding: 0px 40px 20px 75px;
-    display: flex;
-    align-items: center;
-    position: relative;
-
+  width: 100%;
+  padding: 0px 40px 20px 75px;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 .pageSection .message .successMessage {
-    background-color: #F6F6F6;
-    border: 2px solid #FD3838;
-    padding: 10px 62px;
-    min-height: 128px;
+  background-color: #f6f6f6;
+  border: 2px solid #fd3838;
+  padding: 10px 62px;
+  min-height: 128px;
 }
 .successMessage h2 {
-    font-size: 20px;
-    line-height: 36px;
-    font-weight: 400;
-    color: #303030;
-    padding: 10px 16px 10px 40px;
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: 400;
+  color: #303030;
+  padding: 10px 16px 10px 40px;
 }
 .successIcon {
-    position: absolute;
-    top: 25px;
-    left: 40px;
-    /* top: -15px;
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  /* top: -15px;
     left: 50%;
     transform: translateX(-50%); */
 }
 .successTable {
-    padding: 40px;
+  padding: 40px;
 }
 .pageTable {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 .tableBody {
-    border: 2px solid #E6E7E8;
+  border: 2px solid #e6e7e8;
 }
 .tableRow {
-
 }
 .tableHead {
-    border: 2px solid #E6E7E8;
-    text-align: left;
-    padding: 12px 40px;
-    font-size: 20px;
-    line-height: 36px;
-    font-weight: 600;
-    color: #000000;
+  border: 2px solid #e6e7e8;
+  text-align: left;
+  padding: 12px 40px;
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: 600;
+  color: #000000;
 }
 .tableColumn {
-    border: 2px solid #E6E7E8;
-    padding: 12px 40px;
-    font-size: 20px;
-    line-height: 36px;
-    font-weight: 500;
-    color: #303030;
+  border: 2px solid #e6e7e8;
+  padding: 12px 40px;
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: 500;
+  color: #303030;
 }
 .tableColumn.red {
-    color: #FD3838;
+  color: #fd3838;
 }
 .tableLink {
-    color: #303030;
+  color: #303030;
 }
 .groupbtn {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    padding: 0 40px 40px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 0 40px 40px;
 }
 .donateBtn {
-    padding: 11px 48px;
-    border-radius: 4px;
-    background-color: #000080;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 600;
+  padding: 11px 48px;
+  border-radius: 4px;
+  background-color: #000080;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
 }
 .donateBtn.filled {
-    background-color: #ffffff;
-    color: #000080;
-    border: 2px solid #000080;
+  background-color: #ffffff;
+  color: #000080;
+  border: 2px solid #000080;
 }
 
-@media only screen and (max-width: 350px){
-    .mainClass {
-        padding: 20px 16px;
-    }
-    .pageSection h1 {
-        margin: 20px;
-    }
-    .pageSection .message {
-        padding: 20px 20px 40px 20px;
-    }
-    .pageSection .message .successMessage {
-        padding: 35px 16px 10px;
-        margin-left: -11px;
-        }
-    .successMessage h2 {
-        padding: 0px;
-    }
-    .successIcon {
-        position: absolute;
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .successTable {
-        padding: 40px 0px;
-        padding-top: 0;
-        overflow: hidden;
-    }
-    .pageTable {
-        min-width: 300px;
-    }
-    .tableRow {
-        display: grid;
-    }
-    .groupbtn {
-        flex-direction: column;
-        justify-content: center;
-    }
-    .donateBtn.filled {
-        max-width: 138px;
-        margin: auto;
-    }
+@media only screen and (max-width: 350px) {
+  .mainClass {
+    padding: 20px 16px;
+  }
+  .pageSection h1 {
+    margin: 20px;
+  }
+  .pageSection .message {
+    padding: 20px 20px 40px 20px;
+  }
+  .pageSection .message .successMessage {
+    padding: 35px 16px 10px;
+    margin-left: -11px;
+  }
+  .successMessage h2 {
+    padding: 0px;
+  }
+  .successIcon {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .successTable {
+    padding: 40px 0px;
+    padding-top: 0;
+    overflow: hidden;
+  }
+  .pageTable {
+    min-width: 300px;
+  }
+  .tableRow {
+    display: grid;
+  }
+  .groupbtn {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .donateBtn.filled {
+    max-width: 138px;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 351px) and (max-width: 767px) {
-    .mainClass {
-        padding: 20px 16px;
-    }
-    .pageSection h1 {
-        margin: 20px;
-    }
-    .pageSection .message {
-        padding: 20px 20px 40px 20px;
-    }
-    .pageSection .message .successMessage {
-        padding: 35px 16px 10px;
-    }
-    .successMessage h2 {
-        padding: 0px;
-    }
-    .successIcon {
-        position: absolute;
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .successTable {
-        padding: 40px 20px;
-        padding-top: 0;
-    }
-    .pageTable {
-        min-width: 300px;
-    }
-    .tableRow {
-        display: grid;
-    }
-    .groupbtn {
-        flex-direction: column;
-        justify-content: center;
-    }
-    .donateBtn.filled {
-        max-width: 138px;
-        margin: auto;
-    }
-    }
+  .mainClass {
+    padding: 20px 16px;
+  }
+  .pageSection h1 {
+    margin: 20px;
+  }
+  .pageSection .message {
+    padding: 20px 20px 40px 20px;
+  }
+  .pageSection .message .successMessage {
+    padding: 35px 16px 10px;
+  }
+  .successMessage h2 {
+    padding: 0px;
+  }
+  .successIcon {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .successTable {
+    padding: 40px 20px;
+    padding-top: 0;
+  }
+  .pageTable {
+    min-width: 300px;
+  }
+  .tableRow {
+    display: grid;
+  }
+  .groupbtn {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .donateBtn.filled {
+    max-width: 138px;
+    margin: auto;
+  }
+}
