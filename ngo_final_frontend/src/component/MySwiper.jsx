@@ -36,7 +36,7 @@ const MySwiper = ({ image }) => {
         slidesPerView: 1,
       },
       1024: {
-        slidesPerGroup: 1,
+        slidesPerGroup: 3,
         spaceBetween: 10,
         slidesPerView: 3,
       },
@@ -95,7 +95,12 @@ export const MySwiperTeamMember = ({ styles, teamData }) => {
         spaceBetween: 2,
       },
       1024: {
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
+        slidesPerView: 1,
+        spaceBetween: 2,
+      },
+      1200: {
+        slidesPerGroup: 2,
         slidesPerView: 3,
         spaceBetween: 2,
       },
