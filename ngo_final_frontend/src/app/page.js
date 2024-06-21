@@ -4,8 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import Right from "./right";
 import {
+  FacebookMessengerShareButton,
   FacebookShareButton,
-  FacebookShareCount,
   LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
@@ -580,7 +580,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
                 <label htmlFor="phoneNumber">Phone Number*</label>
                 <input
                   type="text"
-                  placeholder="Enter phone name"
+                  placeholder="Enter phone number"
                   id="phoneNumber"
                   onInput={(e) => {
                     e.target.value = e.target.value
@@ -710,9 +710,9 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
             heroes.”
           </p>
           <div className={styles.socialMedia}>
-            <FacebookShareCount url={shareURL}>
+            <FacebookShareButton url={shareURL}>
               <FaFacebook color="#1877F2" className={styles.shareIcon} />
-            </FacebookShareCount>
+            </FacebookShareButton>
             <TwitterShareButton url={shareURL}>
               <FaXTwitter className={styles.shareIcon} />
             </TwitterShareButton>

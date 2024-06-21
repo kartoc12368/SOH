@@ -411,6 +411,7 @@
 }
 .content .middleTag {
   padding: 20px 0;
+  font-size: 18px;
 }
 .ourHeroes {
   font-size: 24px;
@@ -540,10 +541,19 @@
   gap: 15px;
 }
 @media only screen and (max-width: 320px) {
+  .supportHeroesContent p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 32px;
+    color: #303030;
+  }
   .mainSection h2 {
     padding: 10px;
   }
   .supportHeroesContent p {
+    font-size: 18px;
+  }
+  .content p {
     font-size: 18px;
   }
   .mainSection p {
@@ -626,11 +636,26 @@
   .LOA {
     flex-direction: column;
   }
+  .sliderTag {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 400px) {
   .mainSection h2 {
     padding: 10px;
+  }
+  .sliderTag {
+    font-size: 18px;
+  }
+  .supportHeroesContent p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 32px;
+    color: #303030;
+  }
+  .content p {
+    font-size: 18px;
   }
   .supportHeroesContent p {
     font-size: 18px;
@@ -639,9 +664,7 @@
     padding-right: 9px;
     padding-left: 13px;
   }
-  z .content {
-    font-size: 18px;
-  }
+
   .upperPortion {
     flex-direction: column;
     padding: 60px 16px;
@@ -717,6 +740,18 @@
 @media only screen and (min-width: 401px) and (max-width: 767px) {
   .mainSection h2 {
     padding: 10px;
+  }
+  .sliderTag {
+    font-size: 18px;
+  }
+  .supportHeroesContent p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #303030;
+  }
+  .content p {
+    font-size: 18px;
   }
   .mainSection p {
     padding-right: 9px;

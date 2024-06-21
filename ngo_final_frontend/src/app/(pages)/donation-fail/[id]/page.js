@@ -151,7 +151,7 @@ export default function page({ params }) {
           </div>
           <div className={styles.groupbtn}>
             <button type="submit" className={styles.donateBtn}>
-              <a href="/donation">Make Another Donation</a>
+              <a href="/">Make Another Donation</a>
             </button>
             <button
               type="submit"
