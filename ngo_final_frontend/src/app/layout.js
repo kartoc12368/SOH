@@ -13,12 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <>
       <ErrorBoundary fallback={<Error />}>
-        <html>
-          <head>
-            <link rel="icon" href="/images/favicon.ico" />
-          </head>
-          <div className={inter.className}>{children}</div>
-        </html>
+        <html>{children}</html>
       </ErrorBoundary>
     </>
   );
