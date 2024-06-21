@@ -105,9 +105,6 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
       if (!formData.pan.trim()) {
         newErrors.pan = "PAN number is required for 80G certificate.";
       }
-      if (!formData.donor_address.trim()) {
-        newErrors.donor_address = "Address is required for 80G certificate.";
-      }
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -597,7 +594,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
                 )}
               </div>
               <div className={styles.donor_address}>
-                <label htmlFor="donor_address">Address*</label>
+                <label htmlFor="donor_address">Address</label>
                 <input
                   type="text"
                   placeholder="Enter your address"
@@ -606,11 +603,6 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
                   value={formData.donor_address}
                   onChange={handleChange}
                 />
-                {errors.donor_address && (
-                  <span className={styles.error} style={{ color: "red" }}>
-                    {errors.donor_address}
-                  </span>
-                )}
               </div>
               <div className={styles.gCerti}>
                 <p>Do you want 80G Certificate?</p>
