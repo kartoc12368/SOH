@@ -138,7 +138,7 @@ export default function page({ params }) {
                   <th className={styles.tableHead}>Receipt:</th>
                   <td className={styles.tableColumn}>
                     <p
-                       style={{ cursor: "pointer" ,textDecoration:"underline"}}
+                      style={{ cursor: "pointer", textDecoration: "underline" }}
                       onClick={generatePDF}
                       className={styles.tableLink}
                     >

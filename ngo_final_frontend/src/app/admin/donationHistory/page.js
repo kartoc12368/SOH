@@ -265,6 +265,8 @@ export default function Page() {
                     <th>Donor Details</th>
                     <th>Fundraiser Details</th>
                     <th>Amount</th>
+                    <th>Donation project</th>
+
                     <th>Payment Type</th>
                     <th>Payment Status</th>
                     <th>Donor PAN</th>
@@ -293,6 +295,27 @@ export default function Page() {
                         {item.fundraiser?.email}
                       </td>
                       <td>{item.amount}</td>
+                      <td>
+                        {item.donation_activity?.schoolFees
+                          ? `school
+                          ${item.donation_activity?.schoolFees}`
+                          : ""}
+                        <br />
+
+                        {item.donation_activity?.medicalCare
+                          ? `medicalCare:
+                          ${item.donation_activity?.medicalCare}`
+                          : ""}
+                        <br />
+                        {item.donation_activity?.ration
+                          ? `ration:
+                          ${item.donation_activity?.ration}`
+                          : ""}
+                        {!item.donation_activity?.schoolFees &&
+                          !item.donation_activity?.medicalCare &&
+                          !item.donation_activity?.ration &&
+                          "--"}
+                      </td>
                       <td>{item.payment_type}</td>
                       <td>
                         {item.payment_status ? (
