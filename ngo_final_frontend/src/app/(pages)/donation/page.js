@@ -21,7 +21,11 @@ export default function Page() {
     "/images/ArmyEducationalCorps.jpeg",
     "/images/SainikWelfareAndhraPradesh.jpeg",
   ];
-  const shareURL = "x";
+  const shareURL = `Hey,
+
+Check out this organisation doing such yeoman service to our brave soldiers.
+
+${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
 
   const teamData = [
     {

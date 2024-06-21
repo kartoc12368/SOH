@@ -99,7 +99,7 @@ export const TopHeader = ({ link }) => {
           <div className={styles.rightSection}>
             <div className={styles.ImageArea}>
               <img
-                style={{ width: "100%", height: "507px"}}
+                style={{ width: "100%", height: "507px" }}
                 src="/images/FrontImage.png"
                 alt="Soldiers"
                 className={styles.soldierImg}
@@ -112,7 +112,7 @@ export const TopHeader = ({ link }) => {
             Fundraising Page Link:
             <a
               className={styles.tooltip}
-              href={`${process.env.NEXT_PUBLIC_frontEndAPI}/fundraiser/${link}`}
+              href={`/fundraiser/${link}`}
               target="_blank"
             >
               {link == "undefined" ? "------------------------" : link}

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import styles from "../donationFail.module.css";
 import axios from "axios";
 import { renderField } from "@/validation";
+import "jspdf-autotable";
+import jsPDF from "jspdf";
 
 export default function page({ params }) {
   const [data, setData] = useState({});
@@ -23,46 +25,44 @@ export default function page({ params }) {
     fetchData();
   }, []);
 
-  // const generatePDF = () => {
-  //   const doc = new jsPDF();
-  //   doc.setFontSize(12);
+  const generatePDF = () => {
+    const doc = new jsPDF();
 
-  //   // Adding the header with the image
-  //   const logo = new Image();
-  //   logo.src = "/images/logo.png"; // Path to your logo image
-  //   logo.onload = () => {
-  //     doc.addImage(logo, "PNG", 10, 10, 50, 20); // Adjust the position and size of the logo
-  //     doc.setFontSize(16);
-  //     doc.text("Donation Details", 70, 20);
+    // Add the header
+    doc.setFontSize(18);
+    doc.text("Support Our Heroes", 20, 10);
 
-  //     const tableData = [
-  //       ["Transaction Status", "Failed"],
-  //       ["Transaction Reference Number", data.reference_payment || ""],
-  //       ["Transaction Date & Time", data.created_at || "--"],
-  //       ["Mode Of Payment", data.payment_method || "--"],
-  //       ["Email", data.donor_email || "--"],
-  //       ["Phone Number", data.donor_phone || "--"],
-  //       ["Payment Amount (₹)", data.amount || "--"],
-  //       ["Receipt", "Download Receipt"],
-  //     ];
+    // Add a margin and sub-header
+    doc.setFontSize(12);
+    doc.text("Donation Details", 20, 20);
 
-  //     let startY = 40;
-  //     tableData.forEach((row, index) => {
-  //       doc.text(row[0], 20, startY + index * 10);
-  //       doc.text(row[1], 100, startY + index * 10);
-  //     });
+    // Define the table data
+    const tableData = [
+      ["Transaction Status", "Failed"],
+      ["Transaction Reference Number", data.reference_payment || "--"],
+      ["Transaction Date & Time", data.created_at || "--"],
+      ["Mode Of Payment", data.payment_method || "--"],
+      ["Email", data.donor_email || "--"],
+      ["Phone Number", data.donor_phone || "--"],
+      ["Payment Amount (INR)", data.amount || "--"],
+    ];
 
-  //     // Adding the "Thank you for donation" message
-  //     doc.setFontSize(14);
-  //     doc.text(
-  //       "Thank you for your donation",
-  //       20,
-  //       startY + tableData.length * 10 + 20
-  //     );
+    // Convert table data to required format for autoTable
+    const autoTableData = tableData.map((row) => {
+      return { field: row[0], value: row[1] };
+    });
 
-  //     doc.save("donation-details.pdf");
-  //   };
-  // };
+    // Add the table using autoTable
+    doc.autoTable({
+      startY: 30,
+      head: [["Field", "Value"]],
+      body: autoTableData.map((row) => [row.field, row.value]),
+      theme: "striped",
+    });
+
+    // Save the PDF
+    doc.save("donation-details.pdf");
+  };
 
   return (
     <>
@@ -134,18 +134,18 @@ export default function page({ params }) {
                     {renderField(data.amount)}
                   </td>
                 </tr>
-                {/* <tr className={styles.tableRow}>
+                <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Receipt:</th>
                   <td className={styles.tableColumn}>
-                    <a
-                      href=""
-                      // onClick={generatePDF}
+                    <p
+                       style={{ cursor: "pointer" ,textDecoration:"underline"}}
+                      onClick={generatePDF}
                       className={styles.tableLink}
                     >
                       Download Receipt
-                    </a>
+                    </p>
                   </td>
-                </tr> */}
+                </tr>
               </tbody>
             </table>
           </div>
