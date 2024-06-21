@@ -11,7 +11,12 @@ export default function RootLayout({ children }) {
   return (
     <>
       <ErrorBoundary fallback={<Error />}>
-        <html>{children}</html>
+        <html>
+          <head>
+            <link rel="icon" href="/images/favicon.ico" />
+          </head>
+          {children}
+        </html>
       </ErrorBoundary>
     </>
   );

@@ -5,12 +5,15 @@ import axios from "axios";
 import Right from "./right";
 import {
   FacebookShareButton,
+  FacebookShareCount,
   LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
 import { FaFacebook, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Header from "@/component/header";
+import Footer from "@/component/footer";
 
 export default function Page() {
   const images = [
@@ -255,6 +258,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
 
   return (
     <>
+      <Header />
       <main className={styles.mainPage}>
         <div className={"container"}>
           <div className={styles.upperPortion}>
@@ -706,9 +710,9 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
             heroes.”
           </p>
           <div className={styles.socialMedia}>
-            <FacebookShareButton url={shareURL}>
+            <FacebookShareCount url={shareURL}>
               <FaFacebook color="#1877F2" className={styles.shareIcon} />
-            </FacebookShareButton>
+            </FacebookShareCount>
             <TwitterShareButton url={shareURL}>
               <FaXTwitter className={styles.shareIcon} />
             </TwitterShareButton>
@@ -721,6 +725,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }
