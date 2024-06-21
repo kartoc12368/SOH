@@ -86,7 +86,7 @@ export default function Right({ styles, images, teamData }) {
             soldiers/widows are being supported every month).
           </p>
           <img
-            src="/images/ProjectSehat.png"
+            src="/images/projectsehat.png"
             alt="Project Sehat"
             width="540"
             height="359"

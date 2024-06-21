@@ -597,7 +597,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
                 )}
               </div>
               <div className={styles.donor_address}>
-                <label htmlFor="donor_address">Address*</label>
+                <label htmlFor="donor_address">Address</label>
                 <input
                   type="text"
                   placeholder="Enter your address"
