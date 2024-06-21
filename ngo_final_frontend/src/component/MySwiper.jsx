@@ -100,7 +100,7 @@ export const MySwiperTeamMember = ({ styles, teamData }) => {
         spaceBetween: 2,
       },
       1200: {
-        slidesPerGroup: 2,
+        slidesPerGroup: 3,
         slidesPerView: 3,
         spaceBetween: 2,
       },
