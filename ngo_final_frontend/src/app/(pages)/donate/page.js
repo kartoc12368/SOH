@@ -6,7 +6,7 @@
 // import { addDonatErrorSchema, showSwal } from "@/validation";
 // import { Country, State, City } from "country-state-city";
 
-import NotFound from "@/app/not-found"
+import NotFound from "@/app/not-found";
 
 // export default function Page({ params }) {
 //   const [amount, setDonationAmount] = useState("");
@@ -383,8 +383,10 @@ import NotFound from "@/app/not-found"
 //   );
 // }
 
-export default Unauth =()=>{
-  return(<>
-
-<NotFound/>  </>)
-}
+export default Unauth = () => {
+  return (
+    <>
+      <NotFound />{" "}
+    </>
+  );
+};
