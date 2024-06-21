@@ -275,6 +275,7 @@ export default function Page() {
                       <th>Donation Date</th>
                       <th>Donor Details</th>
                       <th>Amount</th>
+                      <th>project</th>
                       <th>Donor PAN</th>
                       <th>Donor Address</th>
                       <th>Payment Type</th>
@@ -300,6 +301,27 @@ export default function Page() {
                           {item.donor_phone}
                         </td>
                         <td>{renderField(item.amount)}</td>
+                        <td>
+                          {item.donation_activity?.schoolFees
+                            ? `school
+                          ${item.donation_activity?.schoolFees}`
+                            : ""}
+                          <br />
+
+                          {item.donation_activity?.medicalCare
+                            ? `medicalCare:
+                          ${item.donation_activity?.medicalCare}`
+                            : ""}
+                          <br />
+                          {item.donation_activity?.ration
+                            ? `ration:
+                          ${item.donation_activity?.ration}`
+                            : ""}
+                          {!item.donation_activity?.schoolFees &&
+                            !item.donation_activity?.medicalCare &&
+                            !item.donation_activity?.ration &&
+                            "--"}
+                        </td>
                         <td>{renderField(item.pan)}</td>
                         <td>{renderField(item.donor_address)}</td>
                         <td>{item.payment_type ? item.payment_type : "--"}</td>
