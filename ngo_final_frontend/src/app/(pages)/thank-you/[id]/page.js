@@ -3,6 +3,9 @@ import axios from "axios";
 import styles from "../thank.module.css";
 import { useEffect, useState } from "react";
 import { renderField } from "@/validation";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
+import Link from "next/link";
 export default function Page({ params }) {
   const [data, setData] = useState([]);
 
@@ -21,30 +24,44 @@ export default function Page({ params }) {
 
     fetchData();
   }, []);
-  // const generatePDF = () => {
-  //   const doc = new jsPDF();
-  //   doc.setFontSize(12);
+  const generatePDF = () => {
+    const doc = new jsPDF();
 
-  //   doc.text("Donation Details", 20, 10);
+    // Add the header
+    doc.setFontSize(18);
+    doc.text("Support Our Heroes", 20, 10);
 
-  //   const tableData = [
-  //     ["Transaction Status", "Failed"],
-  //     ["Transaction Reference Number", data.reference_payment || "--"],
-  //     ["Transaction Date & Time", data.created_at || "--"],
-  //     ["Mode Of Payment", data.payment_method || "--"],
-  //     ["Email", data.donor_email || "--"],
-  //     ["Phone Number", data.donor_phone || "--"],
-  //     ["Payment Amount (₹)", data.amount || "--"],
-  //   ];
+    // Add a margin and sub-header
+    doc.setFontSize(12);
+    doc.text("Donation Details", 20, 20);
 
-  //   let startY = 20;
-  //   tableData.forEach((row, index) => {
-  //     doc.text(row[0], 20, startY + index * 10);
-  //     doc.text(row[1], 100, startY + index * 10);
-  //   });
+    // Define the table data
+    const tableData = [
+      ["Transaction Status", "Success"],
+      ["Transaction Reference Number", data.reference_payment || "--"],
+      ["Transaction Date & Time", data.created_at || "--"],
+      ["Mode Of Payment", data.payment_method || "--"],
+      ["Email", data.donor_email || "--"],
+      ["Phone Number", data.donor_phone || "--"],
+      ["Payment Amount (INR)", data.amount || "--"],
+    ];
 
-  //   doc.save("donation-details.pdf");
-  // };
+    // Convert table data to required format for autoTable
+    const autoTableData = tableData.map((row) => {
+      return { field: row[0], value: row[1] };
+    });
+
+    // Add the table using autoTable
+    doc.autoTable({
+      startY: 30,
+      head: [["Field", "Value"]],
+      body: autoTableData.map((row) => [row.field, row.value]),
+      theme: "striped",
+    });
+
+    // Save the PDF
+    doc.save("donation-details.pdf");
+  };
 
   return (
     <>
@@ -117,18 +134,18 @@ export default function Page({ params }) {
                     {renderField(data.amount)}
                   </td>
                 </tr>
-                {/* <tr className={styles.tableRow}>
+                <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Receipt:</th>
                   <td className={styles.tableColumn}>
-                    <a
-                      href=""
-                      // onClick={generatePDF}
+                    <p
+                      style={{ cursor: "pointer", textDecoration: "underline" }}
+                      onClick={generatePDF}
                       className={styles.tableLink}
                     >
                       Download Receipt
-                    </a>
+                    </p>
                   </td>
-                </tr> */}
+                </tr>
               </tbody>
             </table>
           </div>

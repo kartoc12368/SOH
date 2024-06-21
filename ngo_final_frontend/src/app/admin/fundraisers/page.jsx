@@ -331,7 +331,7 @@ export default function FundraiserPage() {
                           <td className={styles.td}>
                             <a
                               style={{ color: "rgb(0, 0, 238)" }}
-                              href={`${process.env.NEXT_PUBLIC_frontEndAPI}/fundraiser/${fundraiser?.fundraiser_page?.id}`}
+                              href={`/fundraiser/${fundraiser?.fundraiser_page?.id}`}
                               target="_blank"
                             >
                               /{fundraiser?.fundraiser_page?.id}
