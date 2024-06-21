@@ -33,7 +33,7 @@
   position: absolute;
   top: 480px;
   display: flex;
-  justify-content: end;
+  justify-content:flex-end;
   align-items: center;
   opacity: 0.75;
   border: 1px solid #fff;
@@ -41,7 +41,7 @@
 }
 .lowerPart p {
   display: flex;
-  justify-content: end;
+  justify-content:flex-end;
   margin-right: 20px;
 }
 .lowerPart p a {
