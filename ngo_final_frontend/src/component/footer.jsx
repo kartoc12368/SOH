@@ -163,14 +163,13 @@ export default function Footer() {
               className={styles.socialmediaImage}
             />
           </Link>
-          <Link href="https://www.youtube.com/channel/UC6K5yueYHK1bpvFbTuY5YGQ">
-            <Image
-              src="/images/youtube().png"
-              alt="youtube"
-              height="50"
-              width="50"
-              className={styles.socialmediaImage}
-            />
+          <Link
+            style={{ textDecoration: "none" }}
+            href="https://www.youtube.com/channel/UC6K5yueYHK1bpvFbTuY5YGQ"
+          >
+            <div className={styles.youtube}>
+              <i className={`fa-brands fa-youtube ${styles.yt}`}></i>
+            </div>
           </Link>
           <Link href="https://www.linkedin.com/in/support-our-heroes-16a526120/">
             <Image

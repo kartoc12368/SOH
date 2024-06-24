@@ -183,3 +183,18 @@
     font-size: 18px;
   }
 }
+.youtube {
+  height: 51px;
+  border-radius: 50%;
+  background-color: red;
+  width: 51px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: #cd201f;
+  text-decoration: none;
+}
+.yt {
+  font-size: 25px;
+}

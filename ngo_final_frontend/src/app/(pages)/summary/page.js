@@ -274,6 +274,9 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
       console.error("Error:", error);
     }
   };
+  const formatNumberWithCommas = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
 
   return (
     <>
@@ -676,7 +679,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
               )}
               <div className={styles.donationBtn}>
                 <button type="submit" className={styles.donateBtn}>
-                  Donate &nbsp; ₹ {formData.amount}
+                  Donate &nbsp; ₹ {formatNumberWithCommas(formData.amount)}
                 </button>
               </div>
             </form>
