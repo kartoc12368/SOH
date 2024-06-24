@@ -723,7 +723,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
             </TwitterShareButton>
             <EmailShareButton url={shareURL}>
               <i className={styles.shareIcon}>
-                <img height={44} width={44} src="/images/gmail.svg" />{" "}
+                <img height={44} width={44} src="/images/gmail.svg" className={styles.shareIcon}/>{" "}
               </i>
             </EmailShareButton>
             <WhatsappShareButton url={shareURL}>

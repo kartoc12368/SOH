@@ -167,7 +167,7 @@ export default function Footer() {
             style={{ textDecoration: "none" }}
             href="https://www.youtube.com/channel/UC6K5yueYHK1bpvFbTuY5YGQ"
           >
-            <div className={styles.youtube}>
+            <div className={`${styles.youtube} ${styles.socialmediaImage}`}>
               <i className={`fa-brands fa-youtube ${styles.yt}`}></i>
             </div>
           </Link>

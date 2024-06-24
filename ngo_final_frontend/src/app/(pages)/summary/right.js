@@ -63,7 +63,7 @@ export default function Right({ styles, images, teamData }) {
             <span className={styles.boldText}>
               We are providing an ongoing help to 125 people every month
             </span>{" "}
-            under our various projects outlined below :-
+            under our various projects outlined below&nbsp;:-
           </p>
           <p>
             <span className={styles.boldText}>(a) Project PITHU</span> aims to
@@ -188,7 +188,7 @@ export default function Right({ styles, images, teamData }) {
             <MySwiper  styles={styles} image={images} />
           </div>
         </div>
-        <a
+        <a target="_blank"
           href="https://supportourheroes.in/letters-of-appreciation/"
           className={styles.viewAllPage}
         >
