@@ -183,7 +183,7 @@ export default function Footer() {
           </Link>
         </div>
         <p className={styles.copyright}>
-          Copyright ©{currentYear} Support Our Heroes
+          Copyright © {currentYear} Support Our Heroes
         </p>
       </div>
     </footer>
