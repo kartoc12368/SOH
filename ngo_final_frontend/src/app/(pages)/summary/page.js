@@ -100,7 +100,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
       newErrors.donor_first_name = "Please enter First name.";
     }
     if (!formData.donor_phone.trim() || !/^\d{10}/.test(formData.donor_phone)) {
-      newErrors.donor_phone = "Mobile Number must be 10 digits.";
+      newErrors.donor_phone = "Mobile Number must be of 10 digits.";
     }
     if (certificate) {
       if (!formData.pan.trim()) {
@@ -123,6 +123,13 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+  const handlePanChange = (e) => {
+    const { value } = e.target;
+
+    const sanitizedValue = value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
+
+    setFormData({ ...formData, pan: sanitizedValue });
   };
 
   const handleChange = (e) => {
@@ -657,7 +664,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
                       name="pan"
                       maxLength={10}
                       value={formData.pan}
-                      onChange={handleChange}
+                      onChange={handlePanChange}
                     />
                     {errors.pan && (
                       <span className={styles.error} style={{ color: "red" }}>

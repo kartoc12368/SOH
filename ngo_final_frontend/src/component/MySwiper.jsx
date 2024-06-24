@@ -87,7 +87,10 @@ export const MySwiperTeamMember = ({ styles, teamData }) => {
       delay: 2500,
       disableOnInteraction: false,
     },
-  
+    navigation: {
+      nextEl: ".custom-arrow-next-artical",
+      prevEl: ".custom-arrow-prev-artical",
+    },
     breakpoints: {
       320: {
         slidesPerView: 1,
@@ -111,42 +114,36 @@ export const MySwiperTeamMember = ({ styles, teamData }) => {
     },
   };
   return (
-    <>
-      <Swiper
-        {...sliderConfig}
-        className="teamMember"
-        modules={[Autoplay, Navigation]}
-        navigation={{
-          nextEl: ".custom-arrow-next-artical",
-          prevEl: ".custom-arrow-prev-artical",
-        }}
-      >
-        {teamData.map((team, index) => (
-          <SwiperSlide key={index}>
-            <div className={styles.teamMember}>
-              <img src={team.src} alt={team.name} width="173" height="220" />
-              <div className={styles.teamMemberDetails}>
-                <h3 className={styles.memberDetails}>
-                  {team.name}
-                  <br />
-                  {team.award ? (
-                    team.award
-                  ) : (
-                    <>
-                      <br />
-                    </>
-                  )}
-                  <br />
-                </h3>
-                <h4 className={styles.memberDetails}>{team.patron}</h4>
-              </div>
+    <Swiper
+      {...sliderConfig}
+      className="teamMember"
+      modules={[Autoplay, Navigation]}
+    >
+      {teamData.map((team, index) => (
+        <SwiperSlide key={index}>
+          <div className={styles.teamMember}>
+            <img src={team.src} alt={team.name} width="173" height="220" />
+            <div className={styles.teamMemberDetails}>
+              <h3 className={styles.memberDetails}>
+                {team.name}
+                <br />
+                {team.award ? (
+                  team.award
+                ) : (
+                  <>
+                    <br />
+                  </>
+                )}
+                <br />
+              </h3>
+              <h4 className={styles.memberDetails}>{team.patron}</h4>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          </div>
+        </SwiperSlide>
+      ))}
       <div className={`custom-arrow-next-artical swiper-button-next `}></div>
       <div className={`custom-arrow-prev-artical swiper-button-prev`}></div>
-    </>
+    </Swiper>
   );
 };
 

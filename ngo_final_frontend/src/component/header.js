@@ -64,7 +64,7 @@ export default function Header() {
     <>
       <header className={styles.head}>
         <div className={styles.logo}>
-          <Link href={"/"}>
+          <Link href="https://supportourheroes.in/">
             <Image
               priority
               alt="SOH"
@@ -292,6 +292,12 @@ export default function Header() {
             )}
 
             <i
+              style={{
+                border: "2px solid #000080",
+                color: "#fff",
+                padding: "20px",
+                backgroundColor: "#000080",
+              }}
               className={`fa-solid fa-bars ${styles.menuIcon}`}
               onClick={handleSidebarToggle}
             ></i>

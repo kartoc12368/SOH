@@ -547,6 +547,9 @@
     line-height: 32px;
     color: #303030;
   }
+  .userName {
+    flex-direction: column;
+  }
 
   .mainSection h2 {
     padding: 10px;
@@ -645,6 +648,9 @@
 @media only screen and (min-width: 321px) and (max-width: 400px) {
   .mainSection h2 {
     padding: 10px;
+  }
+  .userName {
+    flex-direction: column;
   }
   .sliderTag {
     font-size: 18px;
