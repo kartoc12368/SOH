@@ -2,8 +2,9 @@
 import styles from "./donation.module.css";
 import { useState } from "react";
 import axios from "axios";
-import Right from "../../right";
+import Right from "./right";
 import {
+  EmailShareButton,
   FacebookMessengerShareButton,
   FacebookShareButton,
   LinkedinShareButton,
@@ -674,38 +675,21 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
             </form>
             <div className={styles.paymentIcons}>
               <div className={styles.icons}>
-                <a href="#">
-                  <img
-                    src="/images/phonepay.png"
-                    alt="phonepay"
-                    width="40"
-                    height="40"
-                  />
-                </a>
-                <a href="#">
-                  <img
-                    src="/images/gpay.png"
-                    alt="gpay"
-                    width="40"
-                    height="40"
-                  />
-                </a>
-                <a href="#">
-                  <img
-                    src="/images/bheem.png"
-                    alt="bheem"
-                    width="40"
-                    height="40"
-                  />
-                </a>
-                <a href="#">
-                  <img
-                    src="/images/otherPay.png"
-                    alt="otherPayment"
-                    width="40"
-                    height="40"
-                  />
-                </a>
+                <img
+                  src="/images/phonepay.png"
+                  alt="phonepay"
+                  width="40"
+                  height="40"
+                />
+
+                <img src="/images/gpay.png" alt="gpay" width="40" height="40" />
+
+                <img
+                  src="/images/bheem.png"
+                  alt="bheem"
+                  width="40"
+                  height="40"
+                />
               </div>
             </div>
           </div>
@@ -721,15 +705,17 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
             heroes.”
           </p>
           <div className={styles.socialMedia}>
-            <FacebookShareButton url={shareURL}>
+            <FacebookMessengerShareButton url={shareURL}>
               <FaFacebook color="#1877F2" className={styles.shareIcon} />
-            </FacebookShareButton>
+            </FacebookMessengerShareButton>
             <TwitterShareButton url={shareURL}>
               <FaXTwitter className={styles.shareIcon} />
             </TwitterShareButton>
-            <LinkedinShareButton url={shareURL}>
-              <FaLinkedin color="#0a66c2" className={styles.shareIcon} />
-            </LinkedinShareButton>
+            <EmailShareButton url={shareURL}>
+              <i className={styles.shareIcon}>
+                <img height={44} width={44} src="/images/gmail.svg" />{" "}
+              </i>
+            </EmailShareButton>
             <WhatsappShareButton url={shareURL}>
               <FaWhatsapp color="#25D366" className={styles.shareIcon} />
             </WhatsappShareButton>
