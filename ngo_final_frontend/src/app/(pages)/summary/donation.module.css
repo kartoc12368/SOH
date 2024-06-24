@@ -313,6 +313,9 @@
   gap: 8px;
   padding: 20px 0;
 }
+.pNumber , .donor_address {
+  padding-top: 0;
+}
 .email label,
 .pNumber label,
 .panNo label,
