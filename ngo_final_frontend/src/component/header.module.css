@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 24px 20px;
+  padding: 24px 109px;
 }
 /* #808080 */
 .head .logo {
@@ -180,14 +180,6 @@
   font-family: "Roboto", sans-serif;
 }
 
-.head .headerBtn .innerBtn:hover {
-  background-color: #070790;
-  color: #ffffff;
-}
-.head .headerBtn .innerBtn.filled:hover {
-  background-color: #fff;
-  color: #070790;
-}
 .head .headerBtn .headerIcon {
   font-size: 25px;
   display: none;
@@ -233,8 +225,7 @@
 }
 .profileimg .dropdown-options {
   min-width: 91px;
-  @media only screen and (max-width: 425px) {
-  }
+
   list-style: none;
   padding: 12px;
   position: absolute;
@@ -278,6 +269,7 @@
 @media only screen and (max-width: 1023px) {
   .head {
     justify-content: space-between;
+    padding: 20px 24px;
   }
 
   .head .headerNav {
@@ -354,7 +346,7 @@
   right: -100%;
   width: 100%;
   height: 100%;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   z-index: 1000;
   overflow-y: auto;
   transition: right 0.3s ease;
@@ -368,9 +360,10 @@
 
 .sidebar .closebtn {
   position: absolute;
-  top: 50px;
-  right: 25px;
+  top: 44px;
+  right: 46px;
   font-size: 36px;
+
   margin-left: 50px;
   background: none;
   border: none;
@@ -450,7 +443,6 @@
     margin: 0;
   }
 }
-
 
 @media (min-width: 1024px) {
   .head .headerNav {

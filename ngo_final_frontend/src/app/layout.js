@@ -3,7 +3,7 @@ import Error from "./error";
 import "./globals.css";
 
 export const metadata = {
-  title: "Support Our Heroes – Serving those who fought for us",
+  title: "Support Our Heroes - Serving those who fought for us",
   description: "",
 };
 
