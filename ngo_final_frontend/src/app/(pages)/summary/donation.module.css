@@ -423,7 +423,7 @@
   border-bottom: 1px solid #e0e0e0;
 }
 .supportHeroesContent {
-  padding: 20px 0 40px;
+  padding: 20px 0 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -443,7 +443,7 @@
   line-height: 40px;
   color: #fd8900;
   border-bottom: 1px solid #e0e0e0;
-  margin: 0px 20px 20px;
+  margin: 10px 0px 20px;
 }
 .sliders {
   display: flex;
