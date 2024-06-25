@@ -134,24 +134,12 @@ export default function page({ params }) {
                     {renderField(data.amount)}
                   </td>
                 </tr>
-                <tr className={styles.tableRow}>
-                  <th className={styles.tableHead}>Receipt:</th>
-                  <td className={styles.tableColumn}>
-                    <p
-                      style={{ cursor: "pointer", textDecoration: "underline" }}
-                      onClick={generatePDF}
-                      className={styles.tableLink}
-                    >
-                      Download Receipt
-                    </p>
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
           <div className={styles.groupbtn}>
             <button type="submit" className={styles.donateBtn}>
-              <a href={`${process.env.NEXT_PUBLIC_frontEndAPI}/summary}`}>
+              <a href={`${process.env.NEXT_PUBLIC_frontEndAPI}/summary`}>
                 Make Another Donation
               </a>
             </button>
@@ -159,7 +147,7 @@ export default function page({ params }) {
               type="submit"
               className={`${styles.donateBtn} ${styles.filled}`}
             >
-              <a href="https://supportourheroes.in/">Done</a>
+              <a href="https://supportourheroes.in">Done</a>
             </button>
           </div>
         </section>
