@@ -98,7 +98,7 @@ export default function Page() {
       newErrors.donor_first_name = "Please enter First name.";
     }
     if (!formData.donor_phone.trim() || !/^\d{10}/.test(formData.donor_phone)) {
-      newErrors.donor_phone = "Mobile Number must be 10 digits.";
+      newErrors.donor_phone = "Mobile Number must be of 10 digits.";
     }
     if (certificate) {
       if (!formData.pan.trim()) {
@@ -337,9 +337,14 @@ export default function Page() {
                   type="text"
                   className={styles.amount}
                   name="amount"
+                  maxLength={8}
                   value={formData.amount > 0 ? formData.amount : ""}
                   onChange={handleChange}
-                  placeholder="Enter amount"
+                  placeholder={
+                    donationOption == "donateAnyAmount"
+                      ? "Enter Amount"
+                      : "Choose project"
+                  }
                   disabled={donationOption !== "donateAnyAmount"}
                 />
                 {errors.amount && (
@@ -404,7 +409,12 @@ export default function Page() {
                         >
                           <button
                             type="button"
-                            className={styles.minusButton}
+                            // className={styles.minusButton}
+                            className={
+                              !checkboxCounts.schoolFees > 0
+                                ? styles.minusButton
+                                : `${styles.plusButton} ${styles.minusButton}`
+                            }
                             onClick={() => decrementCount("schoolFees")}
                           >
                             <svg
@@ -450,7 +460,11 @@ export default function Page() {
                         <div className={styles.amountSelect}>
                           <button
                             type="button"
-                            className={styles.minusButton}
+                            className={
+                              !checkboxCounts.medicalCare > 0
+                                ? styles.minusButton
+                                : `${styles.plusButton} ${styles.minusButton}`
+                            }
                             onClick={() => decrementCount("medicalCare")}
                           >
                             <svg
@@ -496,7 +510,11 @@ export default function Page() {
                         <div className={styles.amountSelect}>
                           <button
                             type="button"
-                            className={styles.minusButton}
+                            className={
+                              !checkboxCounts.ration > 0
+                                ? styles.minusButton
+                                : `${styles.plusButton} ${styles.minusButton}`
+                            }
                             onClick={() => decrementCount("ration")}
                           >
                             <svg

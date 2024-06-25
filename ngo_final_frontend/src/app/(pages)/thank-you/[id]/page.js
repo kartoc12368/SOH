@@ -151,7 +151,9 @@ export default function Page({ params }) {
           </div>
           <div className={styles.groupbtn}>
             <button type="submit" className={styles.donateBtn}>
-              <a href="/">Make Another Donation</a>
+              <a href={`${process.env.NEXT_PUBLIC_frontEndAPI}/summary}`}>
+                Make Another Donation
+              </a>
             </button>
             <button
               type="submit"
