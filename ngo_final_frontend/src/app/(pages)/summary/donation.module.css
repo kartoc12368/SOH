@@ -10,7 +10,7 @@
 .upperPortion {
   display: flex;
   align-items: center;
-  padding: 60px 80px 40px;
+  padding: 60px 0 40px;
   gap: 80px;
 }
 .pageTagline {

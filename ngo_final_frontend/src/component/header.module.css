@@ -405,6 +405,10 @@
   border-bottom: 1px solid #dddddd;
   font-size: 18px;
 }
+.sidebar nav ul li .contactSidebar.filled {
+  padding: 20px;
+  padding-top: 5px;
+}
 .sidebar nav ul li details summary {
   font-size: 18px;
   padding: 8px 20px 15px;

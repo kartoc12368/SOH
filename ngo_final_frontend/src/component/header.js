@@ -428,14 +428,14 @@ export default function Header() {
                     legacyBehavior
                     href="https://supportourheroes.in/contact-us/"
                   >
-                    <a className={styles.contactSidebar}>Contact Us</a>
+                    <a className={`${styles.contactSidebar} ${styles.filled}`}>Contact Us</a>
                   </Link>{" "}
                   <Link
                     className={styles.dropdownText}
                     legacyBehavior
                     href="https://donation.supportourheroes.in/summary/"
                   >
-                    <a className={styles.contactSidebar}>DONATE</a>
+                    <a className={`${styles.contactSidebar} ${styles.filled}`}>DONATE</a>
                   </Link>
                 </li>
               </ul>
