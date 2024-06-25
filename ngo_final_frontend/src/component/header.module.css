@@ -343,13 +343,11 @@
 .sidebar {
   position: absolute;
   top: 140px;
-  right: -100%;
+  right: 100%;
   width: 100%;
   height: fit-content;
   background-color: #fafafa;
   z-index: 1000;
-  overflow-y: auto;
-  transition: right 0.3s ease;
   display: flex;
   flex-direction: column;
 }
