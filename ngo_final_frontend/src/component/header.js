@@ -438,7 +438,7 @@ export default function Header() {
                     href="https://donation.supportourheroes.in/summary/"
                   >
                     <a className={`${styles.contactSidebar} ${styles.filled}`}>
-                      DONATE``
+                      DONATE
                     </a>
                   </Link>
                 </li>
