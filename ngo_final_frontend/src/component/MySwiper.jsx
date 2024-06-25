@@ -59,7 +59,12 @@ const MySwiper = ({ image }) => {
       {image &&
         image.map((image, index) => (
           <SwiperSlide key={index}>
-            <a href={image} target="_blank" rel="noopener noreferrer">
+            <a
+              href={image}
+              target="_blank"
+              style={{ color: "inherit" }}
+              rel="noopener noreferrer"
+            >
               <img
                 src={image}
                 style={{ marginTop: "41px" }}

@@ -7,14 +7,12 @@ import {
   EmailShareButton,
   FacebookMessengerShareButton,
   FacebookShareButton,
-  LinkedinShareButton,
+  FacebookShareCount,
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
-import { FaFacebook, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import Header from "@/component/header";
-import Footer from "@/component/footer";
 
 export default function Page() {
   const images = [
@@ -27,9 +25,9 @@ export default function Page() {
   ];
   const shareURL = `Hey,
 
-Check out this organisation doing such yeoman service to our brave soldiers.
+  Check out this organisation doing such yeoman service to our brave soldiers.
 
-${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
+  ${process.env.NEXT_PUBLIC_frontEndAPI}/summary`;
 
   const teamData = [
     {
@@ -100,7 +98,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
       newErrors.donor_first_name = "Please enter First name.";
     }
     if (!formData.donor_phone.trim() || !/^\d{10}/.test(formData.donor_phone)) {
-      newErrors.donor_phone = "Mobile Number must be of 10 digits.";
+      newErrors.donor_phone = "Mobile Number must be 10 digits.";
     }
     if (certificate) {
       if (!formData.pan.trim()) {
@@ -124,13 +122,6 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  const handlePanChange = (e) => {
-    const { value } = e.target;
-
-    const sanitizedValue = value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
-
-    setFormData({ ...formData, pan: sanitizedValue });
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -142,12 +133,10 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
 
   const handleDonationOptionChange = (e) => {
     setDonationOption(e.target.value);
-    // if (e.target.value !== "donateAnyAmount") {
     setFormData({
       ...formData,
       amount: 0,
     });
-    // } else {
     setSelectedCheckboxes([]);
     setCheckboxCounts({
       schoolFees: 0,
@@ -155,7 +144,6 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
       ration: 0,
     });
   };
-  // };
 
   const handle80GCertificateChange = (e) => {
     setcertificate(e.target.value === "yes");
@@ -169,10 +157,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
       ration: 1250,
     };
 
-    if (
-      checked
-      // && donationOption !== "donateProjects"
-    ) {
+    if (checked) {
       setDonationOption("donateProjects");
     }
 
@@ -185,9 +170,8 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
 
     setFormData((prevData) => {
       const newAmount = checked
-        ? prevData.amount + amountMap[id] * (checkboxCounts[id] + 1)
-        : prevData.amount > 0 &&
-          (prevData.amount - amountMap[id]) * checkboxCounts[id];
+        ? prevData.amount + amountMap[id]
+        : prevData.amount - amountMap[id] * checkboxCounts[id];
       return { ...prevData, amount: newAmount };
     });
 
@@ -196,7 +180,6 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
       [id]: checked ? 1 : 0,
     }));
   };
-  // console.log(formData.amount);
 
   const incrementCount = (id) => {
     const amountMap = {
@@ -592,7 +575,7 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
                   type="email"
                   id="email"
                   name="donor_email"
-                  placeholder="Enter your Email"
+                  placeholder="Enter your email"
                   value={formData.donor_email}
                   onChange={handleChange}
                 />
@@ -715,19 +698,37 @@ ${process.env.NEXT_PUBLIC_frontEndAPI}/donation`;
             heroes.”
           </p>
           <div className={styles.socialMedia}>
-            <FacebookMessengerShareButton url={shareURL}>
+            <a
+              target="_blank"
+              title="share on facebook"
+              href="https://www.facebook.com/sharer/sharer.php?u=https://donation.supportourheroes.in/summary"
+              url={process.env.NEXT_PUBLIC_frontEndAPI}
+            >
               <FaFacebook color="#1877F2" className={styles.shareIcon} />
-            </FacebookMessengerShareButton>
+            </a>
             <TwitterShareButton url={shareURL}>
-              <FaXTwitter className={styles.shareIcon} />
+              <FaXTwitter
+                title="share on twitter(X)"
+                className={styles.shareIcon}
+              />
             </TwitterShareButton>
             <EmailShareButton url={shareURL}>
               <i className={styles.shareIcon}>
-                <img height={44} width={44} src="/images/gmail.svg" className={styles.shareIcon}/>{" "}
+                <img
+                  title="share on gmail"
+                  height={44}
+                  width={44}
+                  src="/images/gmail.svg"
+                  className={styles.shareIcon}
+                />{" "}
               </i>
             </EmailShareButton>
             <WhatsappShareButton url={shareURL}>
-              <FaWhatsapp color="#25D366" className={styles.shareIcon} />
+              <FaWhatsapp
+                title="share on whatsapp"
+                color="#25D366"
+                className={styles.shareIcon}
+              />
             </WhatsappShareButton>
           </div>
         </section>

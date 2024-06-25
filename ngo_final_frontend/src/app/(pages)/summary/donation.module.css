@@ -290,7 +290,7 @@
   background-color: #000080;
 }
 .numberButton {
-  width: 20px;
+  width: 26px;
   height: 20px;
   padding: 0 5px;
   border-radius: 4px;
@@ -313,7 +313,8 @@
   gap: 8px;
   padding: 20px 0;
 }
-.pNumber , .donor_address {
+.pNumber,
+.donor_address {
   padding-top: 0;
 }
 .email label,
