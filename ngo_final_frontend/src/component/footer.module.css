@@ -107,7 +107,8 @@
     font-size: 15px;
   }
   .mainFooter .upperFooter .scanner .scannerId {
-    font-size: 18px;
+    padding: 0 15px;
+    font-size: 15px;
   }
   .mainFooter .lowerFooter .headline,
   .mainFooter .lowerFooter .headlinePolicy {
@@ -130,7 +131,7 @@
     font-size: 18px;
   }
   .mainFooter .lowerFooter .copyright {
-    font-size: 18px;
+    font-size: 16px;
   }
   .scannerId {
     margin-left: -40px;
