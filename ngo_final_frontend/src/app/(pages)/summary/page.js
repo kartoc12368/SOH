@@ -643,6 +643,7 @@ export default function Page() {
                   <div className={styles.formRadio}>
                     <input
                       type="radio"
+                      style={{ cursor: "pointer" }}
                       id="no"
                       name="certificate"
                       value="no"
@@ -655,6 +656,7 @@ export default function Page() {
                     <input
                       type="radio"
                       id="yes"
+                      style={{ cursor: "pointer" }}
                       name="certificate"
                       value="yes"
                       checked={certificate}

@@ -287,7 +287,7 @@ export default function Header() {
               </>
             ) : (
               <>
-                <Link href={`${process.env.NEXT_PUBLIC_frontEndAPI}/summary`}>
+                <Link href="https://supportourheroes.in/donate-now/">
                   <button className={`${styles.innerBtn} ${styles.filled}`}>
                     Donate
                   </button>
@@ -435,7 +435,7 @@ export default function Header() {
                   <Link
                     className={styles.dropdownText}
                     legacyBehavior
-                    href="https://donation.supportourheroes.in/summary/"
+                    href="https://supportourheroes.in/donate-now/"
                   >
                     <a className={`${styles.contactSidebar} ${styles.filled}`}>
                       DONATE
@@ -447,8 +447,6 @@ export default function Header() {
           </div>
         </div>
       </header>
-
-      {/* Sidebar */}
     </>
   );
 }
