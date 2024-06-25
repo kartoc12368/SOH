@@ -70,7 +70,7 @@ export default function Page() {
 
   const [formData, setFormData] = useState({
     donor_first_name: "",
-    lastName: "",
+    donor_last_name: "",
     donor_email: "",
     donor_phone: "",
     pan: "",
@@ -583,13 +583,13 @@ export default function Page() {
                   )}
                 </div>
                 <div className={styles.name}>
-                  <label htmlFor="lastName">Last Name</label>
+                  <label htmlFor="donor_last_name">Last Name</label>
                   <input
                     type="text"
-                    id="lastName"
-                    name="lastName"
+                    id="donor_last_name"
+                    name="donor_last_name"
                     placeholder="Enter last name"
-                    value={formData.lastName}
+                    value={formData.donor_last_name}
                     onChange={handleChange}
                   />
                 </div>
