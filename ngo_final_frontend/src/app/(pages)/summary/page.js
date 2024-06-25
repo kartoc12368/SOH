@@ -122,6 +122,13 @@ export default function Page() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  const handlePanChange = (e) => {
+    const { value } = e.target;
+
+    const sanitizedValue = value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
+
+    setFormData({ ...formData, pan: sanitizedValue });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
