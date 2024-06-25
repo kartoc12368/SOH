@@ -94,12 +94,12 @@
   }
   .mobileSec {
     flex-direction: column;
-    padding-left: 40px;
+    padding-left: 20px;
   }
   .mainFooter .upperFooter .aboutUs h3,
   .mainFooter .upperFooter .donate h3,
   .mainFooter .upperFooter .scanner h3 {
-    margin: 10px 0 15px;
+    margin: 10px 0 20px;
     font-size: 21px;
   }
   .mainFooter .upperFooter .aboutUs .aboutCompany .aboutUsLink,
@@ -107,7 +107,7 @@
     font-size: 15px;
   }
   .mainFooter .upperFooter .scanner .scannerId {
-    padding: 0 15px;
+    padding: 0 40px;
     font-size: 15px;
   }
   .mainFooter .lowerFooter .headline,
@@ -149,7 +149,7 @@
   .mainFooter .upperFooter .aboutUs h3,
   .mainFooter .upperFooter .donate h3,
   .mainFooter .upperFooter .scanner h3 {
-    margin: 10px 0 15px;
+    margin: 10px 0 20px;
     font-size: 21px;
   }
   .mainFooter .upperFooter .aboutUs .aboutCompany .aboutUsLink,
