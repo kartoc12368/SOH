@@ -21,6 +21,7 @@ export default function Header() {
   const fundraiserCtx = useContext(FundraiserContext);
   const [profileImage, setProfileImage] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
 
   const toggle = () => {
     setisopen(!isopen);
@@ -62,7 +63,10 @@ export default function Header() {
     <Loading />
   ) : (
     <>
-      <header className={styles.head}>
+      <header
+        className={styles.head}
+        style={sidebarOpen ? { marginBottom: "360px" } : {}}
+      >
         <div className={styles.logo}>
           <Link href="https://supportourheroes.in/">
             <Image
@@ -102,7 +106,7 @@ export default function Header() {
                       href="https://supportourheroes.in/project-pithu/"
                       className={styles.dropdownProject}
                     >
-                      Project PITHU
+                      Project PITHU ;
                     </Link>
                     <Link
                       href="https://supportourheroes.in/project-sehat/"
@@ -298,86 +302,149 @@ export default function Header() {
                 padding: "20px",
                 backgroundColor: "#000080",
               }}
-              className={`fa-solid fa-bars ${styles.menuIcon}`}
+              className={`${
+                !sidebarOpen ? "fa-solid fa-bars" : "fa-solid fa-close"
+              } ${styles.menuIcon}`}
               onClick={handleSidebarToggle}
             ></i>
+          </div>{" "}
+          <div
+            className={`${styles.sidebar} ${sidebarOpen ? styles.open : ""}`}
+          >
+            <button className={styles.closebtn} onClick={handleSidebarToggle}>
+              &times;
+            </button>
+            <nav className={styles.sidebarNav}>
+              <ul>
+                <li>
+                  <Link legacyBehavior href="https://supportourheroes.in/">
+                    <a>Home</a>
+                  </Link>
+                </li>
+                <li>
+                  <details>
+                    <summary className={styles.active}>Projects</summary>
+                    <div className={styles.dropdown}>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/project-pithu/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Project PITHU
+                      </Link>
+
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/project-sehat/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Project SEHAT
+                      </Link>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/project-saksham/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Project SAKSHAM
+                      </Link>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/project-sashakt/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Project SASHAKT
+                      </Link>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/project-insaniyat/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Project INSANIYAT
+                      </Link>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/wing-commander-vinod-nebb-memorial-scholarship/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Wg Cdr Vinod Nebb Memorial Scholarship
+                      </Link>
+                    </div>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>About Us</summary>
+                    <div className={styles.dropdown}>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/vision-mission/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Vision & Mission
+                      </Link>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/team/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Team
+                      </Link>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/letters-of-appreciation/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Letters of Appreciation
+                      </Link>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/legal-status/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Legal Status
+                      </Link>
+                      <Link
+                        className={styles.dropdownText}
+                        href="https://supportourheroes.in/tax-exemption-donation-faqs/"
+                      >
+                        <i className="fas fa-angle-right"></i>
+                        Tax Exemption Donation FAQs
+                      </Link>
+                    </div>
+                  </details>
+                </li>
+                <li>
+                  <Link
+                    legacyBehavior
+                    className={styles.dropdownText}
+                    href="https://supportourheroes.in/our-faqs/"
+                  >
+                    <a>Our FAQs</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={styles.dropdownText}
+                    legacyBehavior
+                    href="https://supportourheroes.in/contact-us/"
+                  >
+                    <a className={styles.contactSidebar}>Contact Us</a>
+                  </Link>{" "}
+                  <Link
+                    className={styles.dropdownText}
+                    legacyBehavior
+                    href="https://donation.supportourheroes.in/summary/"
+                  >
+                    <a className={styles.contactSidebar}>DONATE</a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </header>
 
       {/* Sidebar */}
-      <div className={`${styles.sidebar} ${sidebarOpen ? styles.open : ""}`}>
-        <button className={styles.closebtn} onClick={handleSidebarToggle}>
-          &times;
-        </button>
-        <nav className={styles.sidebarNav}>
-          <ul>
-            <li>
-              <Link legacyBehavior href="https://supportourheroes.in/">
-                <a>Home</a>
-              </Link>
-            </li>
-            <li>
-              <details>
-                <summary>Projects</summary>
-                <div className={styles.dropdown}>
-                  <Link href="https://supportourheroes.in/project-pithu/">
-                    Project PITHU
-                  </Link>
-                  <Link href="https://supportourheroes.in/project-sehat/">
-                    Project SEHAT
-                  </Link>
-                  <Link href="https://supportourheroes.in/project-saksham/">
-                    Project SAKSHAM
-                  </Link>
-                  <Link href="https://supportourheroes.in/project-sashakt/">
-                    Project SASHAKT
-                  </Link>
-                  <Link href="https://supportourheroes.in/project-insaniyat/">
-                    Project INSANIYAT
-                  </Link>
-                  <Link href="https://supportourheroes.in/wing-commander-vinod-nebb-memorial-scholarship/">
-                    Wg Cdr Vinod Nebb Memorial Scholarship
-                  </Link>
-                </div>
-              </details>
-            </li>
-            <li>
-              <details>
-                <summary>About Us</summary>
-                <div className={styles.dropdown}>
-                  <Link href="https://supportourheroes.in/vision-mission/">
-                    Vision & Mission
-                  </Link>
-                  <Link href="https://supportourheroes.in/team/">Team</Link>
-                  <Link href="https://supportourheroes.in/letters-of-appreciation/">
-                    Letters of Appreciation
-                  </Link>
-                  <Link href="https://supportourheroes.in/legal-status/">
-                    Legal Status
-                  </Link>
-                  <Link href="https://supportourheroes.in/tax-exemption-donation-faqs/">
-                    Tax Exemption Donation FAQs
-                  </Link>
-                </div>
-              </details>
-            </li>
-            <li>
-              <Link legacyBehavior href="https://supportourheroes.in/our-faqs/">
-                <a>Our FAQs</a>
-              </Link>
-            </li>
-            <li>
-              <Link
-                legacyBehavior
-                href="https://supportourheroes.in/contact-us/"
-              >
-                <a className={styles.contactSidebar}>Contact Us</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
     </>
   );
 }
