@@ -70,7 +70,7 @@ const useAuth = (allowedRoles) => {
     };
 
     fetchData();
-  }, [router, Cookies.get("token")]);
+  }, [router]);
 
   return { user };
 };
