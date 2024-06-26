@@ -5,9 +5,6 @@ import axios from "axios";
 import Right from "./right";
 import {
   EmailShareButton,
-  FacebookMessengerShareButton,
-  FacebookShareButton,
-  FacebookShareCount,
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";

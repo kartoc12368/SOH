@@ -109,7 +109,6 @@ export default function page() {
       donation_date: formData.donation_date,
       payment_method: formData.payment_method,
       donor_first_name: formData.donor_first_name,
-      donor_email: formData.donor_email,
       donor_phone: formData.donor_phone,
       email: formData.email,
     };
@@ -252,9 +251,7 @@ export default function page() {
                       />
                     </span>
                     <span>
-                      <span>
-                        Email <span className={styles.compulsory}>*</span>
-                      </span>
+                      <span>Email</span>
                       <br />
                       <input
                         type="email"
@@ -265,11 +262,6 @@ export default function page() {
                         placeholder="Enter donor e-mail"
                         required
                       />
-                      {errors.donor_email && (
-                        <p style={{ color: "red", marginTop: "5px" }}>
-                          {errors.donor_email}
-                        </p>
-                      )}
                     </span>
                   </div>
                   <div className={styles.secondpersonalDetail}>
@@ -288,7 +280,10 @@ export default function page() {
                     <span>
                       <span>Country</span>
                       <br />
-                      <select  className={styles.selectNation} onChange={handleCountryChange}>
+                      <select
+                        className={styles.selectNation}
+                        onChange={handleCountryChange}
+                      >
                         <option value="">Select Country</option>
                         {countries.map((country) => (
                           <option key={country.isoCode} value={country.isoCode}>

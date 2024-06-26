@@ -6,6 +6,8 @@ import { renderField } from "@/validation";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import Link from "next/link";
+import moment from "moment-timezone";
+
 export default function Page({ params }) {
   const [data, setData] = useState([]);
 
@@ -24,6 +26,12 @@ export default function Page({ params }) {
 
     fetchData();
   }, []);
+  const convertUTCToIST = (utcDateString) => {
+    return moment
+      .utc(utcDateString)
+      .tz("Asia/Kolkata")
+      .format("YYYY-MM-DD HH:mm:ss");
+  };
   const generatePDF = () => {
     const doc = new jsPDF();
 
@@ -39,7 +47,7 @@ export default function Page({ params }) {
     const tableData = [
       ["Transaction Status", "Success"],
       ["Transaction Reference Number", data.reference_payment || "--"],
-      ["Transaction Date & Time", data.created_at || "--"],
+      ["Transaction Date & Time", convertUTCToIST(data.created_at) || "--"],
       ["Mode Of Payment", data.payment_method || "--"],
       ["Email", data.donor_email || "--"],
       ["Phone Number", data.donor_phone || "--"],
@@ -107,7 +115,7 @@ export default function Page({ params }) {
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Transaction Date & Time</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.created_at)}
+                    {renderField(convertUTCToIST(data.created_at))}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>

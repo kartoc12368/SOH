@@ -5,9 +5,10 @@ import axios from "axios";
 import { renderField } from "@/validation";
 import "jspdf-autotable";
 import jsPDF from "jspdf";
-
+import moment from "moment-timezone";
+import Loading from "@/app/loading";
 export default function page({ params }) {
-  const [data, setData] = useState({});
+  const [data, setData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +16,7 @@ export default function page({ params }) {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_serverAPI}/donate/donation/${params.id}`
         );
-        setData(response.data.data);
+        setData(() => response.data.data);
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -24,44 +25,11 @@ export default function page({ params }) {
 
     fetchData();
   }, []);
-
-  const generatePDF = () => {
-    const doc = new jsPDF();
-
-    // Add the header
-    doc.setFontSize(18);
-    doc.text("Support Our Heroes", 20, 10);
-
-    // Add a margin and sub-header
-    doc.setFontSize(12);
-    doc.text("Donation Details", 20, 20);
-
-    // Define the table data
-    const tableData = [
-      ["Transaction Status", "Failed"],
-      ["Transaction Reference Number", data.reference_payment || "--"],
-      ["Transaction Date & Time", data.created_at || "--"],
-      ["Mode Of Payment", data.payment_method || "--"],
-      ["Email", data.donor_email || "--"],
-      ["Phone Number", data.donor_phone || "--"],
-      ["Payment Amount (INR)", data.amount || "--"],
-    ];
-
-    // Convert table data to required format for autoTable
-    const autoTableData = tableData.map((row) => {
-      return { field: row[0], value: row[1] };
-    });
-
-    // Add the table using autoTable
-    doc.autoTable({
-      startY: 30,
-      head: [["Field", "Value"]],
-      body: autoTableData.map((row) => [row.field, row.value]),
-      theme: "striped",
-    });
-
-    // Save the PDF
-    doc.save("donation-details.pdf");
+  const convertUTCToIST = (utcDateString) => {
+    return moment
+      .utc(utcDateString)
+      .tz("Asia/Kolkata")
+      .format("YYYY-MM-DD HH:mm:ss");
   };
 
   return (
@@ -107,7 +75,7 @@ export default function page({ params }) {
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Transaction Date & Time</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.created_at)}
+                    {renderField(convertUTCToIST(data.created_at))}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
