@@ -10,7 +10,7 @@
 .upperPortion {
   display: flex;
   align-items: center;
-  padding: 60px 80px 40px;
+  padding: 60px 0 40px;
   gap: 80px;
 }
 .pageTagline {
@@ -141,8 +141,8 @@
   content: "";
   display: block;
   position: absolute;
-  top: 6px;
-  left: 7px;
+  top: 5px;
+  left: 6px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -297,6 +297,19 @@
   background-color: #ffffff;
   color: #000080;
   border: 0.5px solid #000080;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}.numberButton.filled {
+  width: 26px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background-color: #000080;
+  color: #fff;
+  border: 0.5px solid #fff;
   font-size: 12px;
   text-align: center;
   display: flex;

@@ -283,7 +283,7 @@ export default function Page() {
                       <td>{item.donation_id_frontend}</td>
                       <td>{formatDate(item.donation_date)} </td>
                       <td>
-                        {item.donor_first_name}
+                        {item.donor_first_name}&nbsp;{item.donor_last_name}
                         <br />
                         {item.donor_email}
                         <br />

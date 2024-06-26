@@ -34,7 +34,10 @@ export default function NotFound() {
         <div className="notFoundRedirect">
           Go back to Home??
           {
-            <a style={{ textDecoration: "none" }} href="/">
+            <a
+              style={{ textDecoration: "none" }}
+              href="https://supportourheroes.in/"
+            >
               &nbsp; Home
             </a>
           }

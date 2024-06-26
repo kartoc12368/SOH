@@ -70,7 +70,7 @@ export default function Page() {
 
   const [formData, setFormData] = useState({
     donor_first_name: "",
-    lastName: "",
+    donor_last_name: "",
     donor_email: "",
     donor_phone: "",
     pan: "",
@@ -98,7 +98,7 @@ export default function Page() {
       newErrors.donor_first_name = "Please enter First name.";
     }
     if (!formData.donor_phone.trim() || !/^\d{10}/.test(formData.donor_phone)) {
-      newErrors.donor_phone = "Mobile Number must be 10 digits.";
+      newErrors.donor_phone = "Mobile Number must be of 10 digits.";
     }
     if (certificate) {
       if (!formData.pan.trim()) {
@@ -337,9 +337,14 @@ export default function Page() {
                   type="text"
                   className={styles.amount}
                   name="amount"
+                  maxLength={8}
                   value={formData.amount > 0 ? formData.amount : ""}
                   onChange={handleChange}
-                  placeholder="Enter amount"
+                  placeholder={
+                    donationOption == "donateAnyAmount"
+                      ? "Enter Amount"
+                      : "Choose project"
+                  }
                   disabled={donationOption !== "donateAnyAmount"}
                 />
                 {errors.amount && (
@@ -404,7 +409,12 @@ export default function Page() {
                         >
                           <button
                             type="button"
-                            className={styles.minusButton}
+                            // className={styles.minusButton}
+                            className={
+                              !checkboxCounts.schoolFees > 0
+                                ? styles.minusButton
+                                : `${styles.plusButton} ${styles.minusButton}`
+                            }
                             onClick={() => decrementCount("schoolFees")}
                           >
                             <svg
@@ -450,7 +460,11 @@ export default function Page() {
                         <div className={styles.amountSelect}>
                           <button
                             type="button"
-                            className={styles.minusButton}
+                            className={
+                              !checkboxCounts.medicalCare > 0
+                                ? styles.minusButton
+                                : `${styles.plusButton} ${styles.minusButton}`
+                            }
                             onClick={() => decrementCount("medicalCare")}
                           >
                             <svg
@@ -468,7 +482,8 @@ export default function Page() {
                           </button>
                           <input
                             type="text"
-                            className={styles.numberButton}
+                            className={checkboxCounts.medicalCare>0?`${styles.numberButton.filled}`:`${styles.numberButton}`}
+                            // className={styles.numberButton}
                             value={checkboxCounts.medicalCare}
                             readOnly
                           />
@@ -496,7 +511,11 @@ export default function Page() {
                         <div className={styles.amountSelect}>
                           <button
                             type="button"
-                            className={styles.minusButton}
+                            className={
+                              !checkboxCounts.ration > 0
+                                ? styles.minusButton
+                                : `${styles.plusButton} ${styles.minusButton}`
+                            }
                             onClick={() => decrementCount("ration")}
                           >
                             <svg
@@ -565,13 +584,13 @@ export default function Page() {
                   )}
                 </div>
                 <div className={styles.name}>
-                  <label htmlFor="lastName">Last Name</label>
+                  <label htmlFor="donor_last_name">Last Name</label>
                   <input
                     type="text"
-                    id="lastName"
-                    name="lastName"
+                    id="donor_last_name"
+                    name="donor_last_name"
                     placeholder="Enter last name"
-                    value={formData.lastName}
+                    value={formData.donor_last_name}
                     onChange={handleChange}
                   />
                 </div>
@@ -625,6 +644,7 @@ export default function Page() {
                   <div className={styles.formRadio}>
                     <input
                       type="radio"
+                      style={{ cursor: "pointer" }}
                       id="no"
                       name="certificate"
                       value="no"
@@ -637,6 +657,7 @@ export default function Page() {
                     <input
                       type="radio"
                       id="yes"
+                      style={{ cursor: "pointer" }}
                       name="certificate"
                       value="yes"
                       checked={certificate}

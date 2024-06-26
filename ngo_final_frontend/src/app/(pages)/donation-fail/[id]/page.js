@@ -134,30 +134,20 @@ export default function page({ params }) {
                     {renderField(data.amount)}
                   </td>
                 </tr>
-                <tr className={styles.tableRow}>
-                  <th className={styles.tableHead}>Receipt:</th>
-                  <td className={styles.tableColumn}>
-                    <p
-                      style={{ cursor: "pointer", textDecoration: "underline" }}
-                      onClick={generatePDF}
-                      className={styles.tableLink}
-                    >
-                      Download Receipt
-                    </p>
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
           <div className={styles.groupbtn}>
             <button type="submit" className={styles.donateBtn}>
-              <a href="/">Make Another Donation</a>
+              <a href={`${process.env.NEXT_PUBLIC_frontEndAPI}/summary`}>
+                Try Donation Again
+              </a>
             </button>
             <button
               type="submit"
               className={`${styles.donateBtn} ${styles.filled}`}
             >
-              <a href="https://supportourheroes.in/">Done</a>
+              <a href="https://supportourheroes.in">Done</a>
             </button>
           </div>
         </section>
