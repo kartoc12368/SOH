@@ -107,6 +107,7 @@ export default function Header() {
                       className={styles.dropdownProject}
                     >
                       Project PITHU 
+                      Project PITHU
                     </Link>
                     <Link
                       href="https://supportourheroes.in/project-sehat/"
@@ -287,7 +288,7 @@ export default function Header() {
               </>
             ) : (
               <>
-                <Link href="/donation">
+                <Link href="https://supportourheroes.in/donate-now/">
                   <button className={`${styles.innerBtn} ${styles.filled}`}>
                     Donate
                   </button>
@@ -428,22 +429,23 @@ export default function Header() {
                     legacyBehavior
                     href="https://supportourheroes.in/contact-us/"
                   >
-                    <a className={`${styles.contactSidebar} ${styles.filled}`}>Contact Us</a>
+                    <a className={`${styles.contactSidebar} ${styles.filled}`}>
+                      Contact Us
+                    </a>
                   </Link>{" "}
                   <Link
                     className={styles.dropdownText}
                     legacyBehavior
-                    href="https://donation.supportourheroes.in/summary/"
+                    href="https://supportourheroes.in/donate-now/"
                   >
                     <a className={`${styles.contactSidebar} ${styles.filled}`}>DONATE</a>
-                  </Link> </li>
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>
         </div>
       </header>
-
-      {/* Sidebar */}
     </>
   );
 }
