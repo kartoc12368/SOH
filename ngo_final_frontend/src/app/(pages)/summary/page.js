@@ -91,6 +91,9 @@ export default function Page() {
     if (formData.amount <= 0) {
       newErrors.amount = "Please enter a valid amount.";
     }
+    // if (formData.amount >= 300000) {
+    //   newErrors.amount = "Onetime donation amount is upto 300,000.";
+    // }
     if (!formData.donor_first_name.trim()) {
       newErrors.donor_first_name = "Please enter First name.";
     }
@@ -334,7 +337,7 @@ export default function Page() {
                   type="text"
                   className={styles.amount}
                   name="amount"
-                  maxLength={8}
+                  maxLength={6}
                   value={formData.amount > 0 ? formData.amount : ""}
                   onChange={handleChange}
                   placeholder={
@@ -479,7 +482,11 @@ export default function Page() {
                           </button>
                           <input
                             type="text"
-                            className={checkboxCounts.medicalCare>0?`${styles.numberButton.filled}`:`${styles.numberButton}`}
+                            className={
+                              checkboxCounts.medicalCare > 0
+                                ? `${styles.numberButton.filled}`
+                                : `${styles.numberButton}`
+                            }
                             // className={styles.numberButton}
                             value={checkboxCounts.medicalCare}
                             readOnly
