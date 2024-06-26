@@ -17,7 +17,7 @@ export default function Page({ params }) {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_serverAPI}/donate/donation/${params.id}`
         );
-        setData(response.data.data);
+        setData(response.data?.data);
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -46,15 +46,15 @@ export default function Page({ params }) {
     // Define the table data
     const tableData = [
       ["Transaction Status", "Success"],
-      ["Transaction Reference Number", data.reference_payment || "--"],
+      ["Transaction Reference Number", data?.reference_payment || "--"],
       [
         "Transaction Date & Time",
-        `${data.created_at && convertUTCToIST(data.created_at)}` || "--",
+        `${data?.created_at && convertUTCToIST(data?.created_at)}` || "--",
       ],
-      ["Mode Of Payment", data.payment_method || "--"],
-      ["Email", data.donor_email || "--"],
-      ["Phone Number", data.donor_phone || "--"],
-      ["Payment Amount (INR)", data.amount || "--"],
+      ["Mode Of Payment", data?.payment_method || "--"],
+      ["Email", data?.donor_email || "--"],
+      ["Phone Number", data?.donor_phone || "--"],
+      ["Payment Amount (INR)", data?.amount || "--"],
     ];
 
     // Convert table data to required format for autoTable
@@ -73,7 +73,12 @@ export default function Page({ params }) {
     // Save the PDF
     doc.save("donation-details.pdf");
   };
-
+  useEffect(() => {
+    if (data?.payment_status == "failed") {
+      window.location.href = `${process.env.NEXT_PUBLIC_frontEndAPI}/donation-fail/${params.id}`;
+    }
+    console.log("s", data?.payment_status);
+  }, [data]);
   return (
     <>
       <main className={styles.mainClass}>
@@ -112,38 +117,38 @@ export default function Page({ params }) {
                     Transaction Reference Number
                   </th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.reference_payment)}
+                    {renderField(data?.reference_payment)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Transaction Date & Time</th>
                   <td className={styles.tableColumn}>
-                    {data.created_at &&
-                      renderField(convertUTCToIST(data.created_at))}
+                    {data?.created_at &&
+                      renderField(convertUTCToIST(data?.created_at))}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Mode Of Payment</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.payment_method)}
+                    {renderField(data?.payment_method)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Email</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.donor_email)}
+                    {renderField(data?.donor_email)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Phone Number</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.donor_phone)}
+                    {renderField(data?.donor_phone)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Payment Amount (&#8377;)</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.amount)}
+                    {renderField(data?.amount)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
