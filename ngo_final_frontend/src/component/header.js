@@ -106,7 +106,7 @@ export default function Header() {
                       href="https://supportourheroes.in/project-pithu/"
                       className={styles.dropdownProject}
                     >
-                      Project PITHU ;
+                      Project PITHU 
                     </Link>
                     <Link
                       href="https://supportourheroes.in/project-sehat/"
@@ -216,7 +216,7 @@ export default function Header() {
                   >
                     <Image
                       src={
-                        profileImage === "undefined"
+                        profileImage == "undefined"
                           ? "/images/profile.jpeg"
                           : `${process.env.NEXT_PUBLIC_serverAPI}/fundRaiser/profile-image/${profileImage}`
                       }
@@ -436,8 +436,7 @@ export default function Header() {
                     href="https://donation.supportourheroes.in/summary/"
                   >
                     <a className={`${styles.contactSidebar} ${styles.filled}`}>DONATE</a>
-                  </Link>
-                </li>
+                  </Link> </li>
               </ul>
             </nav>
           </div>
