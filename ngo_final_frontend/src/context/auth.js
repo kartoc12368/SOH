@@ -37,40 +37,40 @@ const useAuth = (allowedRoles) => {
     setUser(decodedToken);
   }, []);
 
-  useEffect(() => {
-    const refreshToken = Cookies.get("refreshToken");
+  // useEffect(() => {
+  //   const refreshToken = Cookies.get("refreshToken");
 
-    const token = Cookies.get("token");
-    const fetchData = async () => {
-      try {
-        if (refreshToken && !token) {
-          const config = {
-            headers: {
-              refreshToken: refreshToken,
-              "Content-Type": "application/json",
-            },
-          };
-          const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_serverAPI}/auth/refreshtoken`,
-            config
-          );
-          const expiryDate = new Date();
-          expiryDate.setTime(expiryDate.getTime() + 15 * 60 * 1000);
-          Cookies.set("token", response.data.data.token, {
-            expires: expiryDate,
-          });
-        }
-      } catch (error) {
-        showSwal("error", "Login required", "Please Login").then((result) => {
-          if (result.isConfirmed) {
-            router.push("/login");
-          }
-        });
-      }
-    };
+  //   const token = Cookies.get("token");
+  //   const fetchData = async () => {
+  //     try {
+  //       if (refreshToken && !token) {
+  //         const config = {
+  //           headers: {
+  //             refreshToken: refreshToken,
+  //             "Content-Type": "application/json",
+  //           },
+  //         };
+  //         const response = await axios.get(
+  //           `${process.env.NEXT_PUBLIC_serverAPI}/auth/refreshToken`,
+  //           config
+  //         );
+  //         const expiryDate = new Date();
+  //         expiryDate.setTime(expiryDate.getTime() + 15 * 60 * 1000);
+  //         Cookies.set("token", response.data.data.token, {
+  //           expires: expiryDate,
+  //         });
+  //       }
+  //     } catch (error) {
+  //       showSwal("error", "Login required", "Please Login").then((result) => {
+  //         if (result.isConfirmed) {
+  //           router.push("/login");
+  //         }
+  //       });
+  //     }
+  //   };
 
-    fetchData();
-  }, [router]);
+  //   fetchData();
+  // }, [router]);
 
   return { user };
 };
