@@ -31,7 +31,12 @@ export default function page({ params }) {
       .tz("Asia/Kolkata")
       .format("YYYY-MM-DD HH:mm:ss");
   };
-
+  useEffect(() => {
+    if (data?.payment_status == "success") {
+      window.location.href = `${process.env.NEXT_PUBLIC_frontEndAPI}/thank-you/${params.id}`;
+    }
+    console.log(data?.payment_status);
+  }, [data]);
   return (
     <>
       <main className={styles.mainClass}>
