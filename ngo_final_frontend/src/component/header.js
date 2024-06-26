@@ -107,7 +107,6 @@ export default function Header() {
                       className={styles.dropdownProject}
                     >
                       Project PITHU 
-                      Project PITHU
                     </Link>
                     <Link
                       href="https://supportourheroes.in/project-sehat/"

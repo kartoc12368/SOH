@@ -80,12 +80,41 @@
 }
 .leftSection {
   box-shadow: 0px 2px 8px 0px #00000026;
-  padding: 0 20px;
   height: fit-content;
   position: sticky;
   top: 0;
   background-color: #ffffff;
 }
+.leftSectionInnerBox {
+  height: 100vh;
+  padding: 0 20px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+/* .leftSectionInnerBox:hover {
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+} */
+.leftSectionInnerBox::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+.leftSectionInnerBox::-webkit-scrollbar
+{
+	width: 4px;
+	background-color: #F5F5F5;
+}
+.leftSectionInnerBox::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+  
+}
+
+
+
+
 .leftSection h2 {
   font-size: 24px;
   font-weight: 600;
@@ -662,6 +691,10 @@
   .sliderTag {
     font-size: 18px;
   }
+  .leftSectionInnerBox {
+    height: auto;
+    padding: 0;
+  }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 400px) {
@@ -760,6 +793,10 @@
   .LOA {
     flex-direction: column;
   }
+  .leftSectionInnerBox {
+    height: auto;
+    padding: 0;
+  }
 }
 
 @media only screen and (min-width: 401px) and (max-width: 767px) {
@@ -854,6 +891,10 @@
   }
   .LOA {
     flex-direction: column;
+  }
+  .leftSectionInnerBox {
+    height: auto;
+    padding: 0;
   }
 }
 .teamMember.swiper-button-prev {
