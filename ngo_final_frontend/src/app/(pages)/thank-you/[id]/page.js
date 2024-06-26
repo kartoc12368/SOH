@@ -47,7 +47,10 @@ export default function Page({ params }) {
     const tableData = [
       ["Transaction Status", "Success"],
       ["Transaction Reference Number", data.reference_payment || "--"],
-      ["Transaction Date & Time", convertUTCToIST(data.created_at) || "--"],
+      [
+        "Transaction Date & Time",
+        `${data.created_at && convertUTCToIST(data.created_at)}` || "--",
+      ],
       ["Mode Of Payment", data.payment_method || "--"],
       ["Email", data.donor_email || "--"],
       ["Phone Number", data.donor_phone || "--"],
@@ -115,7 +118,8 @@ export default function Page({ params }) {
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Transaction Date & Time</th>
                   <td className={styles.tableColumn}>
-                    {renderField(convertUTCToIST(data.created_at))}
+                    {data.created_at &&
+                      renderField(convertUTCToIST(data.created_at))}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>

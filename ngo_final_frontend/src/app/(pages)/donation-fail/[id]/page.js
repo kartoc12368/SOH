@@ -16,7 +16,7 @@ export default function page({ params }) {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_serverAPI}/donate/donation/${params.id}`
         );
-        setData(() => response.data.data);
+        setData(() => response.data?.data);
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -69,37 +69,38 @@ export default function page({ params }) {
                     Transaction Reference Number
                   </th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.reference_payment)}
+                    {renderField(data?.reference_payment)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Transaction Date & Time</th>
                   <td className={styles.tableColumn}>
-                    {renderField(convertUTCToIST(data.created_at))}
+                    {data?.created_at &&
+                      renderField(convertUTCToIST(data?.created_at))}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Mode Of Payment</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.payment_method)}
+                    {renderField(data?.payment_method)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Email</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.donor_email)}
+                    {renderField(data?.donor_email)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Phone Number</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.donor_phone)}
+                    {renderField(data?.donor_phone)}
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <th className={styles.tableHead}>Payment Amount (&#8377;)</th>
                   <td className={styles.tableColumn}>
-                    {renderField(data.amount)}
+                    {renderField(data?.amount)}
                   </td>
                 </tr>
               </tbody>
