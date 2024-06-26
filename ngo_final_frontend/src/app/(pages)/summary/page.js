@@ -311,6 +311,7 @@ export default function Page() {
         </div>
         <section className={styles.mainClass}>
           <div className={styles.leftSection}>
+            <div className={styles.leftSectionInnerBox}>
             <h2>Registration Details</h2>
             <div className={styles.registerDetails}>
               <p className={styles.companyDetails}>
@@ -716,6 +717,7 @@ export default function Page() {
                   height="40"
                 />
               </div>
+            </div>
             </div>
           </div>
           <Right images={images} teamData={teamData} styles={styles} />
