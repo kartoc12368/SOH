@@ -106,6 +106,7 @@ export default function Header() {
                       href="https://supportourheroes.in/project-pithu/"
                       className={styles.dropdownProject}
                     >
+                      Project PITHU 
                       Project PITHU
                     </Link>
                     <Link
@@ -216,7 +217,7 @@ export default function Header() {
                   >
                     <Image
                       src={
-                        profileImage === "undefined"
+                        profileImage == "undefined"
                           ? "/images/profile.jpeg"
                           : `${process.env.NEXT_PUBLIC_serverAPI}/fundRaiser/profile-image/${profileImage}`
                       }
@@ -437,9 +438,7 @@ export default function Header() {
                     legacyBehavior
                     href="https://supportourheroes.in/donate-now/"
                   >
-                    <a className={`${styles.contactSidebar} ${styles.filled}`}>
-                      DONATE
-                    </a>
+                    <a className={`${styles.contactSidebar} ${styles.filled}`}>DONATE</a>
                   </Link>
                 </li>
               </ul>

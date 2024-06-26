@@ -302,6 +302,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}.numberButton.filled {
+  width: 26px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background-color: #000080;
+  color: #fff;
+  border: 0.5px solid #fff;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .email,
 .pNumber,

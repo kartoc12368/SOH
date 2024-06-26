@@ -479,7 +479,8 @@ export default function Page() {
                           </button>
                           <input
                             type="text"
-                            className={styles.numberButton}
+                            className={checkboxCounts.medicalCare>0?`${styles.numberButton.filled}`:`${styles.numberButton}`}
+                            // className={styles.numberButton}
                             value={checkboxCounts.medicalCare}
                             readOnly
                           />
