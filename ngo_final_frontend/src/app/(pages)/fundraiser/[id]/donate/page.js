@@ -259,8 +259,6 @@ export default function Page({ params }) {
       );
       Swal.Close();
     } catch (error) {
-      Swal.fire({ title: "Error", icon: "error", text: "Please try again..." });
-
       console.error("Error:", error);
     }
 
