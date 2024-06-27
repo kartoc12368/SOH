@@ -254,7 +254,7 @@ export default function Page({ params }) {
         showConfirmButton: false,
       });
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_serverAPI}/donate/${params.id}`,
+        `${process.env.NEXT_PUBLIC_serverAPI}/donate/fundraiser-page/${params.id}`,
         dataToSend
       );
       Swal.Close();
