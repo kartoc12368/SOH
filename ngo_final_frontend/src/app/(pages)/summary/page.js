@@ -10,6 +10,8 @@ import {
 } from "react-share";
 import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Swal from "sweetalert2";
+import { showSwal } from "@/validation";
 
 export default function Page() {
   const images = [
@@ -223,6 +225,13 @@ export default function Page() {
   };
 
   const handleSubmit = async (e) => {
+    showSwal(
+      "info",
+      "please wait...",
+      "Redirecting to Payment getway",
+      null,
+      false
+    );
     e.preventDefault();
     if (!validateForm()) {
       return;
@@ -249,6 +258,7 @@ export default function Page() {
         dataToSend
       );
       console.log(response.data);
+      Swal.Close();
     } catch (error) {
       console.error("Error:", error);
     }
