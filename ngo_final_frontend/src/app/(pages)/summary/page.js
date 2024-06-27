@@ -249,7 +249,7 @@ export default function Page() {
       showSwal(
         "info",
         "Please wait...",
-        "Redirecting to Payment getway",
+        "Redirecting to Payment gateway",
         null,
         false
       );
