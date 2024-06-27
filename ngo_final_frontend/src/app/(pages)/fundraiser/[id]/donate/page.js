@@ -245,7 +245,7 @@ export default function Page({ params }) {
 
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_serverAPI}/donate/?id=${params.id}`,
+        `${process.env.NEXT_PUBLIC_serverAPI}/donate/${params.id}`,
         dataToSend
       );
      } catch (error) {
