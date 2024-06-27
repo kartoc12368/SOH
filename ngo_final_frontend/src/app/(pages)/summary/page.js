@@ -10,6 +10,8 @@ import {
 } from "react-share";
 import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Swal from "sweetalert2";
+import { showSwal } from "@/validation";
 
 export default function Page() {
   const images = [
@@ -244,11 +246,18 @@ export default function Page() {
     }
 
     try {
+      showSwal(
+        "info",
+        "Please wait...",
+        "Redirecting to Payment getway",
+        null,
+        false
+      );
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_serverAPI}/donate`,
         dataToSend
       );
-      console.log(response.data);
+      Swal.Close();
     } catch (error) {
       console.error("Error:", error);
     }
@@ -258,7 +267,6 @@ export default function Page() {
         `${process.env.NEXT_PUBLIC_serverAPI}/easypay/donation`,
         dataToSend
       );
-      console.log(response.data);
       window.location.href = response.data.url;
     } catch (error) {
       console.error("Error:", error);

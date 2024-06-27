@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import styles from "./donationHistory.module.css";
 import Sidebar from "@/component/sidebar";
 import useAuth from "@/context/auth";
-import Loading from "@/app/loading";
+import moment from "moment-timezone";
 import { renderField, showSwal } from "@/validation";
 import Unauthorized from "@/app/(pages)/unauthorized/page";
 import { FaCircleCheck } from "react-icons/fa6";
@@ -155,7 +155,9 @@ export default function Page() {
     });
     fetchData().then(() => Swal.close());
   };
-
+  const convertUTCToIST = (utcDateString) => {
+    return moment.utc(utcDateString).tz("Asia/Kolkata").format(" HH:mm:ss");
+  };
   return user ? (
     <>
       <section className={styles.section}>
@@ -281,7 +283,10 @@ export default function Page() {
                   {currentRows.map((item) => (
                     <tr key={item.donation_id_frontend}>
                       <td>{item.donation_id_frontend}</td>
-                      <td>{formatDate(item.donation_date)} </td>
+                      <td>
+                        {formatDate(item.donation_date) +
+                          convertUTCToIST(item.created_at)}
+                      </td>
                       <td>
                         {item.donor_first_name}&nbsp;{item.donor_last_name}
                         <br />
