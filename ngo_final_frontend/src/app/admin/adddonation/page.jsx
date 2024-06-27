@@ -80,24 +80,39 @@ export default function page() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    let updatedFormData;
+
     if (name === "lastName") {
-      setFormData((prevData) => ({
-        ...prevData,
-        donor_name: `${prevData.donor_name} ${value}`,
+      updatedFormData = {
+        ...formData,
+        donor_name: `${formData.donor_name} ${value}`,
         [name]: value,
-      }));
+      };
     } else if (name === "amount") {
       const parsedValue = parseFloat(value);
-      setFormData({
+      updatedFormData = {
         ...formData,
         [name]: isNaN(parsedValue) ? "" : parsedValue,
-      });
+      };
     } else {
-      setFormData({
+      updatedFormData = {
         ...formData,
         [name]: value,
-      });
+      };
     }
+
+    // Remove empty or null fields from updatedFormData
+    const cleanedFormData = Object.entries(updatedFormData).reduce(
+      (acc, [key, val]) => {
+        if (val !== "" && val !== null) {
+          acc[key] = val;
+        }
+        return acc;
+      },
+      {}
+    );
+
+    setFormData(cleanedFormData);
   };
 
   const handleSubmit = async (e) => {
