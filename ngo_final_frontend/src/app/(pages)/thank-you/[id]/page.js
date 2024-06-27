@@ -18,7 +18,6 @@ export default function Page({ params }) {
           `${process.env.NEXT_PUBLIC_serverAPI}/donate/donation/${params.id}`
         );
         setData(response.data?.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -77,7 +76,6 @@ export default function Page({ params }) {
     if (data?.payment_status == "failed") {
       window.location.href = `${process.env.NEXT_PUBLIC_frontEndAPI}/donation-fail/${params.id}`;
     }
-    console.log("s", data?.payment_status);
   }, [data]);
   return (
     <>

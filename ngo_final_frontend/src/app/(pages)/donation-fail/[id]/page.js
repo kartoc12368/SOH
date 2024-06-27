@@ -17,8 +17,7 @@ export default function page({ params }) {
           `${process.env.NEXT_PUBLIC_serverAPI}/donate/donation/${params.id}`
         );
         setData(() => response.data?.data);
-        console.log(response.data);
-      } catch (error) {
+       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
@@ -35,8 +34,7 @@ export default function page({ params }) {
     if (data?.payment_status == "success") {
       window.location.href = `${process.env.NEXT_PUBLIC_frontEndAPI}/thank-you/${params.id}`;
     }
-    console.log(data?.payment_status);
-  }, [data]);
+   }, [data]);
   return (
     <>
       <main className={styles.mainClass}>

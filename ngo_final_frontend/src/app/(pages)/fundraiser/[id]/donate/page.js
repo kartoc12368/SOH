@@ -248,8 +248,7 @@ export default function Page({ params }) {
         `${process.env.NEXT_PUBLIC_serverAPI}/donate/?id=${params.id}`,
         dataToSend
       );
-      console.log(response.data);
-    } catch (error) {
+     } catch (error) {
       console.error("Error:", error);
     }
 
@@ -258,8 +257,7 @@ export default function Page({ params }) {
         `${process.env.NEXT_PUBLIC_serverAPI}/easypay/donation`,
         dataToSend
       );
-      console.log(response.data);
-      window.location.href = response.data.url;
+       window.location.href = response.data.url;
     } catch (error) {
       console.error("Error:", error);
     }

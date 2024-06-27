@@ -225,13 +225,6 @@ export default function Page() {
   };
 
   const handleSubmit = async (e) => {
-    showSwal(
-      "info",
-      "please wait...",
-      "Redirecting to Payment getway",
-      null,
-      false
-    );
     e.preventDefault();
     if (!validateForm()) {
       return;
@@ -253,11 +246,17 @@ export default function Page() {
     }
 
     try {
+      showSwal(
+        "info",
+        "Please wait...",
+        "Redirecting to Payment getway",
+        null,
+        false
+      );
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_serverAPI}/donate`,
         dataToSend
       );
-      console.log(response.data);
       Swal.Close();
     } catch (error) {
       console.error("Error:", error);
@@ -268,7 +267,6 @@ export default function Page() {
         `${process.env.NEXT_PUBLIC_serverAPI}/easypay/donation`,
         dataToSend
       );
-      console.log(response.data);
       window.location.href = response.data.url;
     } catch (error) {
       console.error("Error:", error);
