@@ -22,6 +22,12 @@ const nextConfig = {
         port: "3001",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "admin.supportourheroes.in",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
