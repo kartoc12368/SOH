@@ -246,13 +246,13 @@ export default function Page() {
     }
 
     try {
-      showSwal(
-        "info",
-        "Please wait...",
-        "Redirecting to Payment getway",
-        null,
-        false
-      );
+      Swal.fire({
+        title: "Please wait...",
+        icon: "info",
+        text: "Redirecting to Payment gateway",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_serverAPI}/donate`,
         dataToSend

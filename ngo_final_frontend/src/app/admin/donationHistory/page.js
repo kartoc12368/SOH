@@ -348,25 +348,28 @@ export default function Page() {
               </table>
             </div>
           </div>
-          <div className={styles.pagination}>
-            <button
-              onClick={handlePreviousPage}
-              disabled={currentPage === 1}
-              className={styles.paginationButton}
-            >
-              Previous
-            </button>
-            <span>
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-              className={`${styles.paginationButton} ${styles.filled}`}
-            >
-              Next
-            </button>
-          </div>
+
+          {totalPages !== 0 && (
+            <div className={styles.pagination}>
+              <button
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+                className={styles.paginationButton}
+              >
+                Previous
+              </button>
+              <span>
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+                className={`${styles.paginationButton} ${styles.filled}`}
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       </section>
     </>
