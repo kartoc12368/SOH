@@ -377,7 +377,7 @@ export default function page({ params }) {
               style={{
                 display: "grid",
                 gridGap: "22px",
-                gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+                gridTemplateColumns: " repeat(3, 1fr)",
               }}
             >
               {currentImages.map((image, index) => (
