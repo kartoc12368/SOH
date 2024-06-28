@@ -131,7 +131,7 @@ export default function Page() {
               Amount: item.amount,
               "Payment Type": item.payment_type,
               "Payment Status": item.payment_status || "--",
-              "Payment Status": item.payment_method || "--",
+              "Payment Method": item.payment_method || "--",
               "Donor PAN": item.pan,
               "Donor Address": item.donor_address,
               "Donor City": item.donor_city,
