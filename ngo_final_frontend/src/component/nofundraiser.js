@@ -2,23 +2,22 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Notfundraiser() {
+function CountdownRedirect({ initialCount, redirectUrl, message }) {
   const router = useRouter();
-  const [count, setCount] = useState(10); // Initial countdown value
+  const [count, setCount] = useState(initialCount);
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
       setCount((prevCount) => prevCount - 1);
     }, 1000);
 
-  
     if (count === 0) {
       clearInterval(countdownInterval);
-      router.replace("/");
+      router.replace(redirectUrl);
     }
 
     return () => clearInterval(countdownInterval);
-  }, [count, router]);
+  }, [count, router, redirectUrl]);
 
   return (
     <div
@@ -36,8 +35,28 @@ export default function Notfundraiser() {
         No Fundraiser found!
       </div>
       <div style={{ fontSize: "2rem" }}>
-        Redirecting to home page in {count} seconds...
+        {message} in {count} seconds...
       </div>
     </div>
+  );
+}
+
+export default function Notfundraiser() {
+  return (
+    <CountdownRedirect
+      initialCount={10}
+      redirectUrl="/"
+      message="Redirecting to home page"
+    />
+  );
+}
+
+export function NotfundraiserDonate() {
+  return (
+    <CountdownRedirect
+      initialCount={5}
+      redirectUrl="https://supportourheroes.in/donate-now"
+      message="Redirecting to donation page"
+    />
   );
 }
