@@ -1,5 +1,4 @@
 const BankNames = [
-  "Bank Name",
   "Allahabad Bank",
   "Andhra Bank",
   "Axis Bank",
