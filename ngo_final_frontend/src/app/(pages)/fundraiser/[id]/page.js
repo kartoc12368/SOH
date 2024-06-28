@@ -407,10 +407,11 @@ export default function page({ params }) {
             </div>
             <div className={styles.pagination}>
               {[...Array(totalPages)].map((_, index) => (
+                
                 <button
                   key={index}
                   className={`${styles.pageItem} ${
-                    currentPage === index + 1 ? styles.activePage : ""
+                    currentPage == index + 1 ? styles.activePage : styles.inactivePage
                   }`}
                   onClick={() => paginate(index + 1)}
                 >
