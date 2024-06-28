@@ -489,7 +489,6 @@
   padding: 10px 14px;
   border-radius: 8px;
   color: #000080;
+  border: 1px solid black;
   background-color: #ffffff;
-  border: none;
-  outline: none;
 }
