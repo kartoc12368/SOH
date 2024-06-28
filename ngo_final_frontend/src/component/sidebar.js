@@ -67,6 +67,16 @@ export default function Sidebar() {
           <MdOutlineWorkHistory className={styles.icon} />
           Donation History
         </p>
+      </Link>{" "}
+      <Link href="/admin/download-delete">
+        <p
+          className={`${styles.link} ${
+            pathname === "/admin/download-delete" ? `${styles.active}` : ""
+          }`}
+        >
+          <MdOutlineWorkHistory className={styles.icon} />
+          Download Delete
+        </p>
       </Link>
     </div>
   );

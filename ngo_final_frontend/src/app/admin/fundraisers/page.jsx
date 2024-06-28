@@ -35,7 +35,6 @@ export default function FundraiserPage() {
   const totalPages = Math.ceil(fundraisers.length / itemsPerPage);
 
   const handleSubmit = async (e) => {
-    showSwal("info", "Updating", "Please wait...", null, false);
     e.preventDefault();
 
     if (formData.target_amount <= 0) {
@@ -48,6 +47,8 @@ export default function FundraiserPage() {
     setLoading(true);
 
     try {
+      showSwal("info", "Updating", "Please wait...", null, false);
+
       const response = await axios.put(
         `${process.env.NEXT_PUBLIC_serverAPI}/admin/fundraiserPage/updatePage/${selectedFundraiser.fundraiser_page?.id}`,
         formData,

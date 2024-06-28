@@ -22,12 +22,13 @@ export default function Page() {
   const [filters, setFilters] = useState({
     from_date: null,
     to_date: null,
-    donation_id: null,
+    donation_id: "",
     payment_option: null,
     payment_status: null,
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 10;
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [inputRowsPerPage, setInputRowsPerPage] = useState(rowsPerPage);
 
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
@@ -50,7 +51,7 @@ export default function Page() {
 
   useEffect(() => {
     token && fetchData();
-  }, [token]);
+  }, [token, rowsPerPage]);
 
   const fetchData = async () => {
     try {
@@ -107,15 +108,21 @@ export default function Page() {
       const ws = XLSX.utils.json_to_sheet(
         data.map((item) => ({
           "Donation Id": item.donation_id_frontend,
-          "Donation Date": formatDate(item.donation_date),
-          "Donor Name": item.donor_first_name,
+          "Donation Date":
+            formatDate(item.donation_date) + convertUTCToIST(item.created_at),
+          "Donor Name":
+            item.donor_first_name + " " + (item.donor_last_name || ""),
           "Donor Email": item.donor_email,
           "Donor Phone": item.donor_phone,
-          "Fundraiser Name": item.fundraiser ? item.fundraiser.firstName : "--",
+          "Fundraiser Name": item.fundraiser
+            ? item.fundraiser.firstName +
+              (item.fundraiser.donor_last_name || "")
+            : "--",
           "Fundraiser Email": item.fundraiser?.email,
           Amount: item.amount,
           "Payment Type": item.payment_type,
           "Payment Status": item.payment_status || "--",
+          "Payment Method": item.payment_method || "--",
           "Donor PAN": item.pan,
           "Donor Address": item.donor_address,
           "Donor City": item.donor_city,
@@ -144,20 +151,31 @@ export default function Page() {
       showSwal("error", "Oops", "Something went wrong!!");
     }
   };
+
   const reset = () => {
     showSwal("info", "Resetting", "Please wait...");
     setFilters({
       from_date: null,
       to_date: null,
-      donation_id: null,
+      donation_id: "",
       payment_option: null,
       payment_status: null,
     });
     fetchData().then(() => Swal.close());
   };
+
   const convertUTCToIST = (utcDateString) => {
     return moment.utc(utcDateString).tz("Asia/Kolkata").format(" HH:mm:ss");
   };
+
+  const handleRowsPerPageChange = () => {
+    const value = Number(inputRowsPerPage);
+    if (value > 0) {
+      setRowsPerPage(value);
+      setCurrentPage(1); // Reset to first page whenever rows per page changes
+    }
+  };
+
   return user ? (
     <>
       <section className={styles.section}>
@@ -198,6 +216,7 @@ export default function Page() {
                     e.target.value = e.target.value.replace(/\D/g, "");
                   }}
                   type="text"
+                  placeholder="Enter donation ID"
                   name="donation_id"
                   id="donation_id"
                   value={filters.donation_id}
@@ -250,6 +269,7 @@ export default function Page() {
               </div>
             </div>
           </form>
+
           <button
             type="button"
             onClick={handleDownload}
@@ -257,6 +277,22 @@ export default function Page() {
           >
             <i className={`fa-solid fa-file-excel`}></i> Download Excel
           </button>
+          <div className={styles.rowsPerPage}>
+            <label htmlFor="rowsPerPage">Rows per page:</label>
+            <input
+              type="number"
+              id="rowsPerPage"
+              value={inputRowsPerPage}
+              onChange={(e) => setInputRowsPerPage(e.target.value)}
+              min="1"
+            />
+            <button
+              className={styles.formsearchbutton}
+              onClick={handleRowsPerPageChange}
+            >
+              Set Rows count
+            </button>
+          </div>
           <div className={styles.tableMain}>
             <div className={styles.tableContainer}>
               <table className={styles.table}>
