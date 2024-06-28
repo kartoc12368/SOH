@@ -24,10 +24,10 @@ export default function page() {
     payment_method: "",
     donation_date: "",
     donor_address: "",
-    city: "",
-    state: "",
-    country: "",
-    pincode: "",
+    donor_city: "",
+    donor_state: "",
+    donor_country: "",
+    donor_pincode: "",
     pan: "",
     refrence_payment: "",
     donor_bank_name: "",
@@ -43,6 +43,7 @@ export default function page() {
     setFormData(initialFormState);
     setErrors({});
   };
+
   useEffect(() => {
     const data = Cookies.get("token");
     settoken(data);
@@ -66,6 +67,7 @@ export default function page() {
     const countryStates = State.getStatesOfCountry(selectedCountry.isoCode);
     setStates(countryStates);
     setCities([]);
+    setFormData({ ...formData, donor_country: selectedCountry.name });
   };
 
   const handleStateChange = (e) => {
@@ -76,6 +78,7 @@ export default function page() {
       stateCode
     );
     setCities(stateCities);
+    setFormData({ ...formData, donor_state: selectedState.name });
   };
 
   const handleChange = (e) => {
@@ -88,7 +91,7 @@ export default function page() {
         donor_name: `${formData.donor_name} ${value}`,
         [name]: value,
       };
-    } else if (name === "amount") {
+    } else if (name === "amount" || name === "donor_pincode") {
       const parsedValue = parseFloat(value);
       updatedFormData = {
         ...formData,
@@ -101,7 +104,6 @@ export default function page() {
       };
     }
 
-    // Remove empty or null fields from updatedFormData
     const cleanedFormData = Object.entries(updatedFormData).reduce(
       (acc, [key, val]) => {
         if (val !== "" && val !== null) {
@@ -160,7 +162,7 @@ export default function page() {
       setLoading(false);
       setErrors({});
     } catch (error) {
-      showSwal("error", "Fundraiser is Inactive", "");
+      showSwal("error", error, "");
       console.error("API error:", error);
       setLoading(false);
     }
@@ -330,7 +332,10 @@ export default function page() {
                       <select
                         className={styles.selectNation}
                         onChange={(e) =>
-                          setFormData({ ...formData, city: e.target.value })
+                          setFormData({
+                            ...formData,
+                            donor_city: e.target.value,
+                          })
                         }
                       >
                         <option value="">Select City</option>
@@ -345,16 +350,16 @@ export default function page() {
                       <span>Pincode</span>
                       <br />
                       <input
-                        type="text"
-                        value={formData.pincode}
+                        type="number"
+                        value={formData.donor_pincode}
                         onChange={handleChange}
                         onInput={(e) => {
                           e.target.value = e.target.value
                             .replace(/\D/g, "")
                             .substring(0, 6);
                         }}
-                        name="pincode"
-                        id="pincode"
+                        name="donor_pincode"
+                        id="donor_pincode"
                         placeholder="Enter donor pincode"
                       />
                     </span>
