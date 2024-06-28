@@ -116,8 +116,12 @@ export default function Page() {
           const ws = XLSX.utils.json_to_sheet(
             data.map((item) => ({
               "Donation Id": item.donation_id_frontend,
-              "Donation Date": formatDate(item.donation_date),
-              "Donor Name": item.donor_first_name,
+              "Donation Date":
+                formatDate(item.donation_date) +
+                convertUTCToIST(item.created_at),
+
+              "Donor Name":
+                item.donor_first_name + " " + (item.donor_last_name || ""),
               "Donor Email": item.donor_email,
               "Donor Phone": item.donor_phone,
               "Fundraiser Name": item.fundraiser
@@ -127,6 +131,7 @@ export default function Page() {
               Amount: item.amount,
               "Payment Type": item.payment_type,
               "Payment Status": item.payment_status || "--",
+              "Payment Status": item.payment_method || "--",
               "Donor PAN": item.pan,
               "Donor Address": item.donor_address,
               "Donor City": item.donor_city,
