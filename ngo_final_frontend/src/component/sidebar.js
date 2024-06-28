@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { usePathname } from "next/navigation";
 import styles from "./sidebar.module.css";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 import { BsPersonRaisedHand } from "react-icons/bs";
 import { TbPasswordFingerprint } from "react-icons/tb";
@@ -74,7 +75,7 @@ export default function Sidebar() {
             pathname === "/admin/download-delete" ? `${styles.active}` : ""
           }`}
         >
-          <MdOutlineWorkHistory className={styles.icon} />
+          <RiDeleteBin6Line className={styles.icon} />
           Download Delete
         </p>
       </Link>
