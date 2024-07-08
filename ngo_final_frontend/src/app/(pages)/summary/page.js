@@ -99,8 +99,15 @@ export default function Page() {
     if (!formData.donor_first_name.trim()) {
       newErrors.donor_first_name = "Please enter First name.";
     }
-    if (!formData.donor_phone.trim() || !/^\d{10}/.test(formData.donor_phone)) {
-      newErrors.donor_phone = "Mobile Number must be of 10 digits.";
+
+    if (!formData.donor_phone.trim()) {
+      newErrors.donor_phone = "Mobile Number is required.";
+    } else if (!/^[1-9]\d{9}$/.test(formData.donor_phone)) {
+      if (!/^\d{10}$/.test(formData.donor_phone)) {
+        newErrors.donor_phone = "Mobile Number must be of 10 digits.";
+      } else {
+        newErrors.donor_phone = "Mobile Number should not start with 0.";
+      }
     }
     if (certificate) {
       if (!formData.pan.trim()) {
