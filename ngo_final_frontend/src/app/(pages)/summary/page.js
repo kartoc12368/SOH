@@ -667,9 +667,11 @@ export default function Page() {
                     placeholder="Enter phone number"
                     id="phoneNumber"
                     onInput={(e) => {
-                      e.target.value = e.target.value
-                        .replace(/\D/g, "")
-                        .substring(0, 10);
+                      let value = e.target.value.replace(/\D/g, "");
+                      if (value.startsWith("0")) {
+                        value = value.substring(1);
+                      }
+                      e.target.value = value.substring(0, 10);
                     }}
                     name="donor_phone"
                     value={formData.donor_phone}
