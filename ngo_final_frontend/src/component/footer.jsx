@@ -171,7 +171,7 @@ export default function Footer() {
               <i className={`fa-brands fa-youtube ${styles.yt}`}></i>
             </div>
           </Link>
-          <Link href="https://www.linkedin.com/in/support-our-heroes-16a526120/">
+          <Link href="https://www.linkedin.com/in/gauravshukla-soh/">
             <Image
               src="/images/linkedin().png"
               alt="linkedin"
