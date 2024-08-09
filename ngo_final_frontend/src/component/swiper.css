@@ -39,14 +39,6 @@
   margin-right: auto;
 }
 
-.oneSwiperImage {
-  width: 633px;
-  height: 380px;
-  display: flex;
-  margin-bottom: 200px;
-  background-size: auto;
-  object-fit: contain;
-}
 .swiper-wrapper {
   width: 172px;
 }

@@ -53,6 +53,7 @@ const MySwiper = ({ image }) => {
   return (
     <Swiper
       {...sliderConfig}
+      loopAddBlankSlides={false}
       className="mainSwiper"
       modules={[Autoplay, Navigation]}
     >

@@ -16,6 +16,7 @@ import Script from "next/script";
 
 export default function Page() {
   const images = [
+    "images/Appreciation-Letter-Manipur-Governor.jpeg",
     "/images/ChiefMinisterOfAssam.jpeg",
     "/images/GovernorOfAndhraPradesh.jpeg",
     "/images/EasternNavalCommand.jpeg",
