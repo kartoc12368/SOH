@@ -12,7 +12,6 @@ import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { showSwal } from "@/validation";
-import Script from "next/script";
 
 export default function Page() {
   const images = [
@@ -26,9 +25,9 @@ export default function Page() {
   ];
   const shareURL = `Hey,
 
-    Check out this organisation doing such yeoman service to our brave soldiers.
+  Check out this organisation doing such yeoman service to our brave soldiers.
 
-    ${process.env.NEXT_PUBLIC_frontEndAPI}/summary`;
+  ${process.env.NEXT_PUBLIC_frontEndAPI}/summary`;
 
   const teamData = [
     {
@@ -69,6 +68,15 @@ export default function Page() {
     },
   ];
 
+  const [donationOption, setDonationOption] = useState("donateProjects");
+  const [certificate, setcertificate] = useState(false);
+  const [checkboxCounts, setCheckboxCounts] = useState({
+    schoolFees: 0,
+    medicalCare: 0,
+    ration: 1,
+  });
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState(["ration"]);
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     donor_first_name: "",
     donor_last_name: "",
@@ -76,18 +84,8 @@ export default function Page() {
     donor_phone: "",
     pan: "",
     donor_address: "",
-    amount: 0,
+    amount: donationOption === "donateProjects" ? 1250 : 0,
   });
-
-  const [donationOption, setDonationOption] = useState("donateAnyAmount");
-  const [certificate, setcertificate] = useState(false);
-  const [checkboxCounts, setCheckboxCounts] = useState({
-    schoolFees: 0,
-    medicalCare: 0,
-    ration: 0,
-  });
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
-  const [errors, setErrors] = useState({});
 
   const validateForm = () => {
     const newErrors = {};
@@ -101,15 +99,8 @@ export default function Page() {
     if (!formData.donor_first_name.trim()) {
       newErrors.donor_first_name = "Please enter First name.";
     }
-
-    if (!formData.donor_phone.trim()) {
-      newErrors.donor_phone = "Mobile Number is required.";
-    } else if (!/^[1-9]\d{9}$/.test(formData.donor_phone)) {
-      if (!/^\d{10}$/.test(formData.donor_phone)) {
-        newErrors.donor_phone = "Mobile Number must be of 10 digits.";
-      } else {
-        newErrors.donor_phone = "Mobile Number should not start with 0.";
-      }
+    if (!formData.donor_phone.trim() || !/^\d{10}/.test(formData.donor_phone)) {
+      newErrors.donor_phone = "Mobile Number must be of 10 digits.";
     }
     if (certificate) {
       if (!formData.pan.trim()) {
@@ -232,13 +223,14 @@ export default function Page() {
       return { ...prevCounts, [id]: newCount };
     });
   };
-
+  console.log(selectedCheckboxes, "selectedCheckboxes");
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
     }
     const donation_activity = {};
+
     selectedCheckboxes.forEach((id) => {
       donation_activity[id] = checkboxCounts[id];
     });
@@ -287,46 +279,6 @@ export default function Page() {
 
   return (
     <>
-      {
-        <>
-          <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-JNQJMTEQ2D"
-          ></Script>
-          <Script>
-            {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-JNQJMTEQ2D');
-          `}
-          </Script>
-          <Script>
-            {`
-              (function(c,l,a,r,i,t,y){
-                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "n63r3tps7w"); 
-            `}
-          </Script>
-          {/* hotjar */}
-          {/* <Script id="hotjar-script" strategy="afterInteractive">
-            {`
-          (function(h,o,t,j,a,r){
-              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-              h._hjSettings={hjid:5056041,hjsv:6};
-              a=o.getElementsByTagName('head')[0];
-              r=o.createElement('script');r.async=1;
-              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-              a.appendChild(r);
-          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        `}
-          </Script> */}
-        </>
-      }
-
       <main className={styles.mainPage}>
         <div className={"container"}>
           <div className={styles.upperPortion}>
@@ -412,25 +364,14 @@ export default function Page() {
                   )}
                 </div>
                 <div className={styles.amountOptions}>
-                  <div className={styles.operation}>
-                    <input
-                      type="radio"
-                      id="donateAnyAmount"
-                      className={styles.inputRadio}
-                      name="donationOption"
-                      value="donateAnyAmount"
-                      checked={donationOption === "donateAnyAmount"}
-                      onChange={handleDonationOptionChange}
-                    />
-                    <label htmlFor="donateAnyAmount">Donate any amount</label>
-                  </div>
-                  <div className={styles.operation}>
+                <div className={styles.operation}>
                     <input
                       type="radio"
                       id="donateProjects"
                       className={styles.inputRadio}
                       name="donationOption"
                       value="donateProjects"
+                      checked={donationOption === "donateProjects"}
                       onChange={handleDonationOptionChange}
                     />
                     <label htmlFor="donateProjects">
@@ -449,6 +390,7 @@ export default function Page() {
                       </svg>
                     </label>
                   </div>
+                     
                   {donationOption === "donateProjects" && (
                     <>
                       <div className={`${styles.operation} ${styles.checkbox}`}>
@@ -462,47 +404,47 @@ export default function Page() {
                         />
                         <label htmlFor="schoolFees">
                           ₹2,500 for school fees
-                        </label>
-                        <div
-                          className={`${styles.amountSelect} ${styles.filled}`}
-                        >
-                          <button
-                            type="button"
-                            // className={styles.minusButton}
-                            className={
-                              !checkboxCounts.schoolFees > 0
-                                ? styles.minusButton
-                                : `${styles.plusButton} ${styles.minusButton}`
-                            }
-                            onClick={() => decrementCount("schoolFees")}
+                          <div
+                            className={`${styles.amountSelect} ${styles.filled}`}
                           >
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                            <button
+                              type="button"
+                              // className={styles.minusButton}
+                              className={
+                                !checkboxCounts.schoolFees > 0
+                                  ? styles.minusButton
+                                  : `${styles.plusButton} ${styles.minusButton}`
+                              }
+                              onClick={() => decrementCount("schoolFees")}
                             >
-                              <path
-                                d="M12.0007 8.66536H4.00065C3.82384 8.66536 3.65427 8.59513 3.52925 8.4701C3.40422 8.34508 3.33398 8.17551 3.33398 7.9987C3.33398 7.82189 3.40422 7.65232 3.52925 7.52729C3.65427 7.40227 3.82384 7.33203 4.00065 7.33203H12.0007C12.1775 7.33203 12.347 7.40227 12.4721 7.52729C12.5971 7.65232 12.6673 7.82189 12.6673 7.9987C12.6673 8.17551 12.5971 8.34508 12.4721 8.4701C12.347 8.59513 12.1775 8.66536 12.0007 8.66536Z"
-                                fill="white"
-                              />
-                            </svg>
-                          </button>
-                          <input
-                            type="text"
-                            className={styles.numberButton}
-                            value={checkboxCounts.schoolFees}
-                            readOnly
-                          />
-                          <button
-                            type="button"
-                            className={`${styles.minusButton} ${styles.plusButton}`}
-                            onClick={() => incrementCount("schoolFees")}
-                          >
-                            +
-                          </button>
-                        </div>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.0007 8.66536H4.00065C3.82384 8.66536 3.65427 8.59513 3.52925 8.4701C3.40422 8.34508 3.33398 8.17551 3.33398 7.9987C3.33398 7.82189 3.40422 7.65232 3.52925 7.52729C3.65427 7.40227 3.82384 7.33203 4.00065 7.33203H12.0007C12.1775 7.33203 12.347 7.40227 12.4721 7.52729C12.5971 7.65232 12.6673 7.82189 12.6673 7.9987C12.6673 8.17551 12.5971 8.34508 12.4721 8.4701C12.347 8.59513 12.1775 8.66536 12.0007 8.66536Z"
+                                  fill="white"
+                                />
+                              </svg>
+                            </button>
+                            <input
+                              type="text"
+                              className={styles.numberButton}
+                              value={checkboxCounts.schoolFees}
+                              readOnly
+                            />
+                            <button
+                              type="button"
+                              className={`${styles.minusButton} ${styles.plusButton}`}
+                              onClick={() => incrementCount("schoolFees")}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </label>
                       </div>
                       <div className={`${styles.operation} ${styles.checkbox}`}>
                         <input
@@ -515,44 +457,44 @@ export default function Page() {
                         />
                         <label htmlFor="medicalCare">
                           ₹2,000 for medical care
-                        </label>{" "}
-                        <div className={styles.amountSelect}>
-                          <button
-                            type="button"
-                            className={
-                              !checkboxCounts.medicalCare > 0
-                                ? styles.minusButton
-                                : `${styles.plusButton} ${styles.minusButton}`
-                            }
-                            onClick={() => decrementCount("medicalCare")}
-                          >
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                          <div className={styles.amountSelect}>
+                            <button
+                              type="button"
+                              className={
+                                !checkboxCounts.medicalCare > 0
+                                  ? styles.minusButton
+                                  : `${styles.plusButton} ${styles.minusButton}`
+                              }
+                              onClick={() => decrementCount("medicalCare")}
                             >
-                              <path
-                                d="M12.0007 8.66536H4.00065C3.82384 8.66536 3.65427 8.59513 3.52925 8.4701C3.40422 8.34508 3.33398 8.17551 3.33398 7.9987C3.33398 7.82189 3.40422 7.65232 3.52925 7.52729C3.65427 7.40227 3.82384 7.33203 4.00065 7.33203H12.0007C12.1775 7.33203 12.347 7.40227 12.4721 7.52729C12.5971 7.65232 12.6673 7.82189 12.6673 7.9987C12.6673 8.17551 12.5971 8.34508 12.4721 8.4701C12.347 8.59513 12.1775 8.66536 12.0007 8.66536Z"
-                                fill="white"
-                              />
-                            </svg>
-                          </button>
-                          <input
-                            type="text"
-                            className={styles.numberButton}
-                            value={checkboxCounts.medicalCare}
-                            readOnly
-                          />
-                          <button
-                            type="button"
-                            className={`${styles.minusButton} ${styles.plusButton}`}
-                            onClick={() => incrementCount("medicalCare")}
-                          >
-                            +
-                          </button>
-                        </div>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.0007 8.66536H4.00065C3.82384 8.66536 3.65427 8.59513 3.52925 8.4701C3.40422 8.34508 3.33398 8.17551 3.33398 7.9987C3.33398 7.82189 3.40422 7.65232 3.52925 7.52729C3.65427 7.40227 3.82384 7.33203 4.00065 7.33203H12.0007C12.1775 7.33203 12.347 7.40227 12.4721 7.52729C12.5971 7.65232 12.6673 7.82189 12.6673 7.9987C12.6673 8.17551 12.5971 8.34508 12.4721 8.4701C12.347 8.59513 12.1775 8.66536 12.0007 8.66536Z"
+                                  fill="white"
+                                />
+                              </svg>
+                            </button>
+                            <input
+                              type="text"
+                              className={styles.numberButton}
+                              value={checkboxCounts.medicalCare}
+                              readOnly
+                            />
+                            <button
+                              type="button"
+                              className={`${styles.minusButton} ${styles.plusButton}`}
+                              onClick={() => incrementCount("medicalCare")}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </label>
                       </div>
                       <div className={`${styles.operation} ${styles.checkbox}`}>
                         <input
@@ -563,47 +505,62 @@ export default function Page() {
                           checked={checkboxCounts.ration > 0}
                           onChange={handleCheckboxChange}
                         />
-                        <label htmlFor="ration">₹1,250 to provide ration</label>
-                        <div className={styles.amountSelect}>
-                          <button
-                            type="button"
-                            className={
-                              !checkboxCounts.ration > 0
-                                ? styles.minusButton
-                                : `${styles.plusButton} ${styles.minusButton}`
-                            }
-                            onClick={() => decrementCount("ration")}
-                          >
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                        <label htmlFor="ration">
+                          ₹1,250 to provide ration
+                          <div className={styles.amountSelect}>
+                            <button
+                              type="button"
+                              className={
+                                !checkboxCounts.ration > 0
+                                  ? styles.minusButton
+                                  : `${styles.plusButton} ${styles.minusButton}`
+                              }
+                              onClick={() => decrementCount("ration")}
                             >
-                              <path
-                                d="M12.0007 8.66536H4.00065C3.82384 8.66536 3.65427 8.59513 3.52925 8.4701C3.40422 8.34508 3.33398 8.17551 3.33398 7.9987C3.33398 7.82189 3.40422 7.65232 3.52925 7.52729C3.65427 7.40227 3.82384 7.33203 4.00065 7.33203H12.0007C12.1775 7.33203 12.347 7.40227 12.4721 7.52729C12.5971 7.65232 12.6673 7.82189 12.6673 7.9987C12.6673 8.17551 12.5971 8.34508 12.4721 8.4701C12.347 8.59513 12.1775 8.66536 12.0007 8.66536Z"
-                                fill="white"
-                              />
-                            </svg>
-                          </button>
-                          <input
-                            type="text"
-                            className={styles.numberButton}
-                            value={checkboxCounts.ration}
-                            readOnly
-                          />
-                          <button
-                            type="button"
-                            className={`${styles.minusButton} ${styles.plusButton}`}
-                            onClick={() => incrementCount("ration")}
-                          >
-                            +
-                          </button>
-                        </div>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.0007 8.66536H4.00065C3.82384 8.66536 3.65427 8.59513 3.52925 8.4701C3.40422 8.34508 3.33398 8.17551 3.33398 7.9987C3.33398 7.82189 3.40422 7.65232 3.52925 7.52729C3.65427 7.40227 3.82384 7.33203 4.00065 7.33203H12.0007C12.1775 7.33203 12.347 7.40227 12.4721 7.52729C12.5971 7.65232 12.6673 7.82189 12.6673 7.9987C12.6673 8.17551 12.5971 8.34508 12.4721 8.4701C12.347 8.59513 12.1775 8.66536 12.0007 8.66536Z"
+                                  fill="white"
+                                />
+                              </svg>
+                            </button>
+                            <input
+                              type="text"
+                              className={styles.numberButton}
+                              value={checkboxCounts.ration}
+                              readOnly
+                            />
+                            <button
+                              type="button"
+                              className={`${styles.minusButton} ${styles.plusButton}`}
+                              onClick={() => incrementCount("ration")}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </label>
                       </div>
                     </>
                   )}
+                  <div className={styles.operation}>
+                    <input
+                      type="radio"
+                      id="donateAnyAmount"
+                      className={styles.inputRadio}
+                      name="donationOption"
+                      value="donateAnyAmount"
+                      checked={donationOption === "donateAnyAmount"}
+                      onChange={handleDonationOptionChange}
+                    />
+                    <label htmlFor="donateAnyAmount">Donate any amount</label>
+                  </div>
+               
                   <p className={styles.optionNotice}>
                     <svg
                       width="16"
@@ -668,11 +625,9 @@ export default function Page() {
                     placeholder="Enter phone number"
                     id="phoneNumber"
                     onInput={(e) => {
-                      let value = e.target.value.replace(/\D/g, "");
-                      if (value.startsWith("0")) {
-                        value = value.substring(1);
-                      }
-                      e.target.value = value.substring(0, 10);
+                      e.target.value = e.target.value
+                        .replace(/\D/g, "")
+                        .substring(0, 10);
                     }}
                     name="donor_phone"
                     value={formData.donor_phone}
