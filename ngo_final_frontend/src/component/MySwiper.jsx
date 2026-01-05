@@ -58,7 +58,7 @@ const MySwiper = ({ image }) => {
       modules={[Autoplay, Navigation]}
     >
       {image &&
-        image.map((image, index) => (
+        image?.map((image, index) => (
           <SwiperSlide key={index}>
             <a
               href={image}
@@ -125,7 +125,7 @@ export const MySwiperTeamMember = ({ styles, teamData }) => {
       className="teamMember"
       modules={[Autoplay, Navigation]}
     >
-      {teamData.map((team, index) => (
+      {teamData && teamData?.map((team, index) => (
         <SwiperSlide key={index}>
           <div className={styles.teamMember}>
             <img src={team.src} alt={team.name} width="173" height="220" />
@@ -191,7 +191,7 @@ export const OneSwiper = ({ OneImage }) => {
   };
   return (
     <Swiper {...onesliderConfig} modules={[Navigation, Autoplay, Pagination]}>
-      {OneImage.map((image, index) => (
+      {OneImage && OneImage?.map((image, index) => (
         <SwiperSlide
           style={{ display: "flex", justifyContent: "center" }}
           key={index}

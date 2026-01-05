@@ -1,4 +1,5 @@
 import MySwiper, { MySwiperTeamMember } from "@/component/MySwiper";
+import Image from "next/image";
 
 export default function Right({ styles, images, teamData }) {
   return (
@@ -12,7 +13,7 @@ export default function Right({ styles, images, teamData }) {
             his meagre pension. Both of his sons worked as daily labourers with
             no predictable income to feed their kids.
           </p>
-          <img
+          <Image
             src="/images/summary(1).png"
             alt=""
             width="540"
@@ -24,7 +25,7 @@ export default function Right({ styles, images, teamData }) {
             point in our life after our father retired from the Army after 28
             years of service.
           </p>
-          <img
+          <Image
             src="/images/summary(2).png"
             alt=""
             width="540"
@@ -37,7 +38,7 @@ export default function Right({ styles, images, teamData }) {
             That's when Support Our Heroes (SOH) was born with an aim to "serve
             those who fought for us"
           </p>
-          <img
+          <Image
             src="/images/summary(3).png"
             alt=""
             width="540"
@@ -72,7 +73,7 @@ export default function Right({ styles, images, teamData }) {
             North-East, Ladakh, Uttarakhand, Telangana etc. (90 soldiers/widows
             are being supported every month).
           </p>
-          <img
+          <Image
             src="/images/ProjectPithu.png"
             alt="Project Pithu"
             width="540"
@@ -85,7 +86,7 @@ export default function Right({ styles, images, teamData }) {
             doctors etc. for destitute and old non-pensioners/their widows (20
             soldiers/widows are being supported every month).
           </p>
-          <img
+          <Image
             src="/images/projectsehat.png"
             alt="Project Sehat"
             width="540"
@@ -97,7 +98,7 @@ export default function Right({ styles, images, teamData }) {
             support children’s education (15 children of needy/disabled soldiers
             are being supported every month).
           </p>
-          <img
+          <Image
             src="/images/ProjectSaksham.png"
             alt="Project Saksham"
             width="540"
@@ -110,7 +111,7 @@ export default function Right({ styles, images, teamData }) {
             widows of Ex-servicemen/needy veterans and their dependents (no
             monthly cases so far).
           </p>
-          <img
+          <Image
             src="/images/ProjectSashakt.png"
             alt="Project Sashakt"
             width="540"
@@ -122,7 +123,7 @@ export default function Right({ styles, images, teamData }) {
             to provide humanitarian assistance to Soldiers & their families as
             well as downtrodden people in the society (no monthly cases so far).
           </p>
-          <img
+          <Image
             src="/images/ProjectInsaniyat.png"
             alt="Project Insaniyat"
             width="540"
@@ -141,7 +142,7 @@ export default function Right({ styles, images, teamData }) {
             background and are not getting any benefit of existing
             Government/Defence Schemes.
           </p>
-          <img
+          <Image
             src="/images/CadetScholarship.png"
             alt="Cadet Scholarship"
             width="540"
@@ -164,7 +165,7 @@ export default function Right({ styles, images, teamData }) {
             of disabled Ex-soldiers & martyred soldiers and trains war widows to
             achieve self-sustainability.
           </p>
-          <img
+          <Image
             src="/images/summary(4).png"
             alt=""
             width="540"
