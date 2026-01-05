@@ -248,7 +248,7 @@ export default function Page() {
         amount: Number(formData.amount),
         certificate: certificate,
         donation_activity,
-      }).filter(([_, value]) => value !== "")
+      }).filter(([_, value]) => value !== ""|| value !== undefined)
     );
     if (!certificate) {
       delete dataToSend.pan;
@@ -347,6 +347,7 @@ export default function Page() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
+                  loading="lazy"
                 ></iframe>
               </div>
               <div className={styles.benefits}>
@@ -793,7 +794,7 @@ export default function Page() {
               target="_blank"
               title="share on facebook"
               href="https://www.facebook.com/sharer/sharer.php?u=https://donation.supportourheroes.in/summary"
-              url={process.env.NEXT_PUBLIC_frontEndAPI}
+              // url={process.env.NEXT_PUBLIC_frontEndAPI}
             >
               <FaFacebook color="#1877F2" className={styles.shareIcon} />
             </a>
